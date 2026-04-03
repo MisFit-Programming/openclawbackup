@@ -1,0 +1,14 @@
+{
+  "vendor": "Microsoft 365",
+  "confidence": "Medium-High",
+  "detected_time": "2026-04-02 ~20:30 UTC",
+  "issue_summary": "Credible reports indicate Microsoft 365 Admin Center access issues affecting admins in North America, with intermittent 'service unavailable' behavior and degraded portal usability across multiple tenants.",
+  "impact": "MSP admin workflows may be delayed for tenant management, user changes, and support actions that depend on the Microsoft 365 admin portal.",
+  "status": "Investigating / degradation reported; broad admin-center impact appears credible but scope and recovery are not yet clearly confirmed.",
+  "response_1": "Avoid non-urgent tenant changes and use alternate admin paths or retry later if portal actions fail.",
+  "response_2": "Notify service desk and account teams that Microsoft 365 admin operations may be delayed; monitor Microsoft status updates before escalating widely.",
+  "source_1": "https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/",
+  "source_1_label": "Neowin summary quoting Microsoft 365 Status",
+  "source_2": "https://community.spiceworks.com/t/m365-admin-center-is-having-issues-this-afternoon/1251842",
+  "source_2_label": "Spiceworks community confirmation"
+}

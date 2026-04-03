@@ -1,0 +1,31 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Maintenance Notice" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*System:* {{system}}" },
+        { "type": "mrkdwn", "text": "*Window:* {{window}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Planned Change*\n{{planned_change}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Expected Impact*\n{{impact}}" },
+        { "type": "mrkdwn", "text": "*Rollback*\n{{rollback}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Operator Note*\n{{operator_note}}" }
+    }
+  ]
+}

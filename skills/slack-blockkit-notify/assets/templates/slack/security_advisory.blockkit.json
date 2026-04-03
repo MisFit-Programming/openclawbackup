@@ -1,0 +1,37 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Security Advisory" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Severity:* {{severity}}" },
+        { "type": "mrkdwn", "text": "*Date:* {{date}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Summary*\n{{summary}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Affected Scope*\n{{scope}}" },
+        { "type": "mrkdwn", "text": "*Impact*\n{{impact}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Recommended Action*\n• {{action_1}}\n• {{action_2}}\n• {{action_3}}" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "<{{source_1}}|{{source_1_label}}> • <{{source_2}}|{{source_2_label}}>" }
+      ]
+    }
+  ]
+}

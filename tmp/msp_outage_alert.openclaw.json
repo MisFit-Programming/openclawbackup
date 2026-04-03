@@ -1,0 +1,73 @@
+{
+  "to": "channel:C09C91KVD88",
+  "content": "MSP outage alert: Microsoft 365 Admin Center degradation reported; admin operations may be delayed.",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Outage Alert"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Vendor:* Microsoft 365"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Detected:* 2026-04-02 ~20:30 UTC"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Confidence:* Medium-High"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Current Issue*\nCredible reports indicate Microsoft 365 Admin Center access issues affecting admins in North America, with intermittent 'service unavailable' behavior and degraded portal usability across multiple tenants."
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Status*\nInvestigating / degradation reported; broad admin-center impact appears credible but scope and recovery are not yet clearly confirmed."
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Impact*\nMSP admin workflows may be delayed for tenant management, user changes, and support actions that depend on the Microsoft 365 admin portal."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Response*\n\u2022 Avoid non-urgent tenant changes and use alternate admin paths or retry later if portal actions fail.\n\u2022 Notify service desk and account teams that Microsoft 365 admin operations may be delayed; monitor Microsoft status updates before escalating widely."
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "<https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/|Neowin summary quoting Microsoft 365 Status> \u2022 <https://community.spiceworks.com/t/m365-admin-center-is-having-issues-this-afternoon/1251842|Spiceworks community confirmation>"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

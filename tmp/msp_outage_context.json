@@ -1,0 +1,14 @@
+{
+  "vendor": "Kaseya / Datto RMM",
+  "confidence": "High — official vendor status page",
+  "detected_time": "2026-04-02 21:09 UTC",
+  "issue_summary": "Kaseya reports Datto RMM agent installs are failing due to certificate errors; the incident remains under investigation.",
+  "impact": "New Datto RMM agent deployments and reinstall attempts may fail, delaying onboarding, break/fix recovery, and rollout work for MSP teams.",
+  "status": "Investigating as of 2026-04-02 21:09 UTC; no resolution posted yet.",
+  "response_1": "Pause non-urgent Datto RMM agent rollout or reinstall work and flag onboarding/change windows that depend on fresh agent deployment.",
+  "response_2": "Check existing managed endpoints for coverage gaps, route urgent installs through alternate tooling/manual handling, and monitor Kaseya status for the fix window.",
+  "source_1": "https://status.kaseya.com/",
+  "source_1_label": "Kaseya Status",
+  "source_2": "https://status.kaseya.com/history",
+  "source_2_label": "Incident History"
+}

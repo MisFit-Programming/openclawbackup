@@ -1,0 +1,8 @@
+{
+  "priority": "Medium",
+  "owner": "Philip",
+  "request": "Review and approve migration of scheduled report jobs to the Block Kit sender workflow.",
+  "why_it_matters": "This will make recurring reports more readable and consistent for leadership use.",
+  "due": "Next admin session",
+  "next_step": "Validate one test card per report family, then cut over the cron jobs."
+}

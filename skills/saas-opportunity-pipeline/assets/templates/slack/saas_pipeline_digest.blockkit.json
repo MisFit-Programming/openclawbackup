@@ -1,0 +1,36 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Opportunity Digest" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Date:* {{date}}" },
+        { "type": "mrkdwn", "text": "*Signals:* {{raw_count}}" },
+        { "type": "mrkdwn", "text": "*Promoted:* {{promoted_count}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Top Opportunities*\n• {{top_1}}\n• {{top_2}}\n• {{top_3}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Top Candidate*\n{{winner_name}}" },
+        { "type": "mrkdwn", "text": "*Weighted Score*\n{{winner_score}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Why It Won*\n{{winner_reason}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Next Step*\n{{next_step}}" }
+    }
+  ]
+}

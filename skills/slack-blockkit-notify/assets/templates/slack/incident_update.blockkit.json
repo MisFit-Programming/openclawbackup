@@ -1,0 +1,32 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Incident Update" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Incident:* {{incident_name}}" },
+        { "type": "mrkdwn", "text": "*Updated:* {{updated_at}}" },
+        { "type": "mrkdwn", "text": "*Status:* {{status}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Current Situation*\n{{current_situation}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Impact*\n{{impact}}" },
+        { "type": "mrkdwn", "text": "*Next Update*\n{{next_update}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Response*\n• {{response_1}}\n• {{response_2}}" }
+    }
+  ]
+}

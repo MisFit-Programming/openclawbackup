@@ -1,0 +1,10 @@
+{
+  "incident_name": "Vendor status monitoring test",
+  "status": "Monitoring",
+  "updated_at": "2026-04-03 02:00 UTC",
+  "current_situation": "No active outage is confirmed. Monitoring logic and alert formatting are being validated.",
+  "impact": "No customer impact; this is a notification-path test.",
+  "next_update": "At next scheduled outage watch cycle or on detection of a credible disruption.",
+  "response_1": "Keep alerting threshold focused on meaningful MSP-impacting issues",
+  "response_2": "Avoid noisy notifications without a credible source"
+}

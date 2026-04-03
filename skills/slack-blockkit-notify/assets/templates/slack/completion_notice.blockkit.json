@@ -1,0 +1,31 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Completion Notice" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Scope:* {{scope}}" },
+        { "type": "mrkdwn", "text": "*Completed:* {{completed_at}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*What Finished*\n{{what_finished}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Result*\n{{result}}" },
+        { "type": "mrkdwn", "text": "*Verification*\n{{verification}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Follow-Up*\n{{follow_up}}" }
+    }
+  ]
+}

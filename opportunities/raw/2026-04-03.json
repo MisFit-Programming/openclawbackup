@@ -1,0 +1,112 @@
+[
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/smallbusiness/comments/1ry01nd/is_it_just_me_or_is_automated_software_still/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "SMB owner frustrated that automation still leaves major manual work",
+    "snippet": "Complaint about copy-paste hell, manual data entry from PDFs, and tools that still require too much human effort.",
+    "suspected_buyer": "small business",
+    "pain_type": "admin ops",
+    "repetition_signal": 1,
+    "notes": "Good general signal for SMB operations pain, but broad and partially accounting-adjacent."
+  },
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/smallbusiness/comments/1rmd39a/is_anyone_elses_business_basically_held_together/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Business held together by Excel, WhatsApp, and email",
+    "snippet": "Operations and admin tracking supplier contracts and client follow-ups across spreadsheets, WhatsApp, and email folders.",
+    "suspected_buyer": "small business",
+    "pain_type": "workflow coordination",
+    "repetition_signal": 2,
+    "notes": "Strong coordination signal spanning intake, follow-up, and fragmented systems."
+  },
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/AiForSmallBusiness/comments/1s8k6ld/how_to_automate_client_invoicing_and_payment/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Freelancer/service business forgets invoice follow-ups",
+    "snippet": "Chasing payments is awkward and easy to forget; tracked in spreadsheet until invoices are 45 days late.",
+    "suspected_buyer": "service business",
+    "pain_type": "follow-up",
+    "repetition_signal": 2,
+    "notes": "Very concrete pain with direct revenue impact; narrow but recurring."
+  },
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/DigitalMarketing/comments/1s0gt0t/agency_owners_how_long_do_you_actually_spend/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Agency client reporting takes 6-8 hours monthly",
+    "snippet": "Agency owners say massive QBRs and monthly client reports remain mostly manual because nuance matters and data is messy.",
+    "suspected_buyer": "agency",
+    "pain_type": "reporting",
+    "repetition_signal": 2,
+    "notes": "Excellent signal for AI-assisted reporting workflow rather than generic dashboards."
+  },
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/PPC/comments/1s28cte/how_to_efficiently_track_and_analyze_ad/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Cross-platform ad performance tracking becomes unmanageable",
+    "snippet": "Manual tracking across ad platforms becomes hard at scale; agencies want automated highlights and consolidated reports.",
+    "suspected_buyer": "agency",
+    "pain_type": "reporting",
+    "repetition_signal": 1,
+    "notes": "Supports the agency reporting theme, though competitive landscape is crowded."
+  },
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/AgencyGrowthHacks/comments/1s1ev9u/what_does_your_client_reporting_workflow_actually/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Agency reporting workflow pain from month-end to send",
+    "snippet": "Practitioners ask which part of report assembly takes the most time and which part teams hate most.",
+    "suspected_buyer": "agency",
+    "pain_type": "reporting",
+    "repetition_signal": 1,
+    "notes": "Confirms end-to-end reporting workflow pain, especially synthesis and packaging."
+  },
+  {
+    "source": "forum",
+    "url": "https://community.hubspot.com/t5/128172-RevOps-Discussions/SDR-gt-AE-Handoff-Process/td-p/271764",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Sales handoff needs custom fields and workflows to stay reportable",
+    "snippet": "Operators suggest custom fields and workflow hacks just to preserve original owner information during SDR to AE handoff.",
+    "suspected_buyer": "ops team",
+    "pain_type": "handoff",
+    "repetition_signal": 2,
+    "notes": "Strong evidence of brittle handoff/reporting processes inside standard CRM workflows."
+  },
+  {
+    "source": "forum",
+    "url": "https://community.hubspot.com/t5/128172-RevOps-Discussions/SDR-AE-handoff-when-both-can-book-demos-How-do-you-structure-the/m-p/1182849",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Confusion around SDR to AE boundary when both book demos",
+    "snippet": "Teams debate when deals should be created and how to define a clean handoff between SDR and AE motions.",
+    "suspected_buyer": "ops team",
+    "pain_type": "handoff",
+    "repetition_signal": 2,
+    "notes": "Another concrete handoff signal with process ambiguity and manual workarounds."
+  },
+  {
+    "source": "forum",
+    "url": "https://community.hubspot.com/t5/Inbound-Sales/How-can-lead-management-systems-improve-sales-workflow-in/td-p/1243245",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Missed leads and inaccurate reporting from multi-channel lead management",
+    "snippet": "Community discussion highlights missed opportunities, inefficient workflows, and inaccurate reporting caused by fragmented lead handling.",
+    "suspected_buyer": "ops team",
+    "pain_type": "workflow coordination",
+    "repetition_signal": 1,
+    "notes": "Broad but relevant signal for intake + routing + follow-up orchestration."
+  },
+  {
+    "source": "reddit",
+    "url": "https://www.reddit.com/r/EntrepreneurRideAlong/comments/1rpb06h/the_boring_backoffice_stuff_i_finally_stopped/",
+    "observed_at": "2026-04-03T03:21:00Z",
+    "title": "Service business automates late-payment chasing after hating awkward reminders",
+    "snippet": "Owner describes cash-flow pain from delaying overdue reminders and replacing manual outreach with staged automated nudges.",
+    "suspected_buyer": "service business",
+    "pain_type": "follow-up",
+    "repetition_signal": 1,
+    "notes": "Confirms collections and follow-up automation as a painful but demoable niche."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "date": "2026-04-03",
+  "system": "OpenClaw Reporting",
+  "what_changed": "Slack Block Kit notification support has been added to the reporting pipeline.",
+  "impact": "Future reports can use richer card layouts instead of plain mrkdwn.",
+  "status": "Ready for rollout",
+  "next_step": "Migrate scheduled report jobs to the Block Kit sender path."
+}

@@ -1,0 +1,39 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Promoted Opportunity" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Opportunity:* {{name}}" },
+        { "type": "mrkdwn", "text": "*Score:* {{score}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Problem*\n{{problem_statement}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*ICP*\n{{ideal_customer_profile}}" },
+        { "type": "mrkdwn", "text": "*Pricing*\n{{pricing_hypothesis}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*MVP Scope*\n• {{mvp_1}}\n• {{mvp_2}}\n• {{mvp_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Demo Scope*\n• {{demo_1}}\n• {{demo_2}}\n• {{demo_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Codex Prompt*\n```{{codex_prompt}}```" }
+    }
+  ]
+}

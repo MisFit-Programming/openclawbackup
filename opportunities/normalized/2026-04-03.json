@@ -1,0 +1,106 @@
+[
+  {
+    "opportunity_id": "opp-2026-0403-01",
+    "name": "ServiceOps Follow-Up Hub",
+    "summary": "A lightweight SaaS for service businesses to centralize lead, client, invoice, and task follow-ups across email, spreadsheets, and messaging so nothing goes stale or forgotten.",
+    "buyer": "small service business owner or ops manager",
+    "pain_category": "workflow automation",
+    "evidence": [
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1rmd39a/is_anyone_elses_business_basically_held_together/",
+        "signal": "Client follow-ups scattered across Excel, WhatsApp, and email folders"
+      },
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/AiForSmallBusiness/comments/1s8k6ld/how_to_automate_client_invoicing_and_payment/",
+        "signal": "Spreadsheet-based invoice/payment follow-up gets forgotten"
+      },
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/EntrepreneurRideAlong/comments/1rpb06h/the_boring_backoffice_stuff_i_finally_stopped/",
+        "signal": "Awkward late-payment reminders hurt cash flow until automated"
+      },
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1ry01nd/is_it_just_me_or_is_automated_software_still/",
+        "signal": "General frustration that automation still leaves too much manual admin"
+      }
+    ],
+    "repetition_strength": 8.7,
+    "fit_notes": "Strong fit: ugly, recurring SMB coordination pain with direct revenue impact and a compact MVP path. Avoids compliance/security complexity if positioned as follow-up orchestration rather than accounting system of record."
+  },
+  {
+    "opportunity_id": "opp-2026-0403-02",
+    "name": "Agency Report Draft Copilot",
+    "summary": "An agency-focused reporting workflow tool that pulls channel metrics, assembles client-ready monthly/QBR drafts, and preserves human nuance by keeping commentary editable.",
+    "buyer": "small to mid-sized marketing agency",
+    "pain_category": "reporting",
+    "evidence": [
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/DigitalMarketing/comments/1s0gt0t/agency_owners_how_long_do_you_actually_spend/",
+        "signal": "6-8 hours monthly per account still spent on manual reports"
+      },
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/AgencyGrowthHacks/comments/1s1ev9u/what_does_your_client_reporting_workflow_actually/",
+        "signal": "End-to-end reporting workflow remains painful and hated"
+      },
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/PPC/comments/1s28cte/how_to_efficiently_track_and_analyze_ad/",
+        "signal": "Cross-platform analysis and top/bottom-performer summaries are hard to maintain manually"
+      }
+    ],
+    "repetition_strength": 8.1,
+    "fit_notes": "Good AI-assisted synthesis opportunity with clear buyer pain, though competition from dashboard vendors and reporting tools lowers acquisition ease."
+  },
+  {
+    "opportunity_id": "opp-2026-0403-03",
+    "name": "RevOps Handoff Guardrails",
+    "summary": "A CRM-adjacent workflow layer for lead intake, SDR-to-AE handoff, owner history, and routing/reporting guardrails so sales ops teams stop building brittle field and workflow hacks.",
+    "buyer": "B2B sales ops or rev ops team",
+    "pain_category": "coordination",
+    "evidence": [
+      {
+        "source": "forum",
+        "url": "https://community.hubspot.com/t5/128172-RevOps-Discussions/SDR-gt-AE-Handoff-Process/td-p/271764",
+        "signal": "Custom-field workaround needed just to retain ownership context during handoff"
+      },
+      {
+        "source": "forum",
+        "url": "https://community.hubspot.com/t5/128172-RevOps-Discussions/SDR-AE-handoff-when-both-can-book-demos-How-do-you-structure-the/m-p/1182849",
+        "signal": "Teams lack a clean boundary for when a deal/handoff should occur"
+      },
+      {
+        "source": "forum",
+        "url": "https://community.hubspot.com/t5/Inbound-Sales/How-can-lead-management-systems-improve-sales-workflow-in/td-p/1243245",
+        "signal": "Fragmented lead workflows cause missed opportunities and inaccurate reporting"
+      }
+    ],
+    "repetition_strength": 7.6,
+    "fit_notes": "Real pain and sticky workflow value, but platform dependence and CRM integration requirements raise effort and go-to-market friction."
+  },
+  {
+    "opportunity_id": "opp-2026-0403-04",
+    "name": "SMB Spreadsheet-to-Ops Layer",
+    "summary": "A generic layer that turns spreadsheet-based small-business admin processes into structured workflows, reminders, and dashboards without a full system replacement.",
+    "buyer": "small business",
+    "pain_category": "operations",
+    "evidence": [
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1ry01nd/is_it_just_me_or_is_automated_software_still/",
+        "signal": "Manual copy-paste persists despite buying software"
+      },
+      {
+        "source": "reddit",
+        "url": "https://www.reddit.com/r/smallbusiness/comments/1rmd39a/is_anyone_elses_business_basically_held_together/",
+        "signal": "Business operations fragmented across Excel and inboxes"
+      }
+    ],
+    "repetition_strength": 6.8,
+    "fit_notes": "Pain is broad and common, but product scope risks becoming too horizontal and mushy for a sharp 1-week demo or clear ICP."
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "channel": "C0AQ69U1YG7",
+  "text": "OpenClaw health report",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "OpenClaw Health Report"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Date:* 2026-04-03"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Host:* openclaw-host"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Overall*\nAttention needed, not urgent"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Update*\nUp to date"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Critical / Warn / Info*\n0 / 3 / 1"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Breakage Risk*\nLow to medium"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Top Findings*\n\u2022 Reverse proxy trust is not configured\n\u2022 Some denyCommands entries are ineffective\n\u2022 Shared chat exposure increases trust-boundary risk"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Safest Next Action*\nReview and correct denyCommands entries first"
+      }
+    }
+  ]
+}

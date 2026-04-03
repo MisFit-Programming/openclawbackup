@@ -1,0 +1,14 @@
+{
+  "severity": "High",
+  "date": "2026-04-03",
+  "summary": "Review current browser patch compliance and monitor for credential theft activity following active exploitation reporting.",
+  "impact": "Unpatched endpoints may be at increased risk of compromise or follow-on infostealer activity.",
+  "scope": "User endpoints, admin workstations, and any Chromium-based browser fleet",
+  "action_1": "Confirm current browser patch status",
+  "action_2": "Review recent high-risk endpoint detections",
+  "action_3": "Escalate any suspicious browser child-process activity",
+  "source_1": "https://example.com/security-advisory",
+  "source_1_label": "Advisory",
+  "source_2": "https://example.com/vendor-status",
+  "source_2_label": "Vendor source"
+}

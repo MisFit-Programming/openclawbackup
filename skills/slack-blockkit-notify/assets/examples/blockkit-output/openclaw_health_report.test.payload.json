@@ -1,0 +1,64 @@
+{
+  "channel": "C0AQ69U1YG7",
+  "text": "OpenClaw health Block Kit test",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "OpenClaw Health Report"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Date:* 2026-04-03"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Host:* openclaw312onubuntu-s-2vcpu-4gb-amd-sfo3-01"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Overall*\nHealthy test post"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Update*\nNo update action needed"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Critical / Warn / Info*\n0 / 0 / 1"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Breakage Risk*\nLow"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Top Findings*\n\u2022 This is a native Block Kit delivery test\n\u2022 Renderer and adapter path are working locally\n\u2022 If you can read this in #appupdates, native block delivery works"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Safest Next Action*\nPromote this path into the scheduled report jobs"
+      }
+    }
+  ]
+}

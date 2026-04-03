@@ -1,0 +1,18 @@
+{
+  "date": "2026-04-03",
+  "executive_summary": "Overnight risk remains centered on browser exploitation, cloud identity pressure, and vendor/service reliability that could affect MSP client operations.",
+  "security_1": "Chrome zero-day patching remains high priority",
+  "security_2": "Credential theft and phishing pressure remain elevated",
+  "tech_1": "M365 / identity changes deserve review",
+  "tech_2": "Vendor reliability and outage posture remain key watch items",
+  "msp_impact": "MSPs should prioritize browser patching, identity monitoring, and vendor dependency awareness across client environments.",
+  "action_1": "Confirm browser patch compliance",
+  "action_2": "Review high-risk identity and endpoint alerts",
+  "action_3": "Watch major vendor status pages for disruption",
+  "link_1": "https://example.com/security1",
+  "link_1_label": "Security item 1",
+  "link_2": "https://example.com/tech1",
+  "link_2_label": "Tech item 1",
+  "link_3": "https://example.com/vendor1",
+  "link_3_label": "Vendor item 1"
+}

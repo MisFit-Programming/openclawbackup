@@ -1,0 +1,31 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Update" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*System:* {{system}}" },
+        { "type": "mrkdwn", "text": "*Date:* {{date}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*What Changed*\n{{what_changed}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Status*\n{{status}}" },
+        { "type": "mrkdwn", "text": "*Impact*\n{{impact}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Next Step*\n{{next_step}}" }
+    }
+  ]
+}

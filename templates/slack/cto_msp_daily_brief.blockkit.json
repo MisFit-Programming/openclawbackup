@@ -1,0 +1,41 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "CTO / MSP Brief" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Date:* {{date}}" },
+        { "type": "mrkdwn", "text": "*Audience:* CTO / MSP Leadership" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Summary*\n{{executive_summary}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Security*\n• {{security_1}}\n• {{security_2}}" },
+        { "type": "mrkdwn", "text": "*Platform / Vendor*\n• {{tech_1}}\n• {{tech_2}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*MSP Impact*\n{{msp_impact}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Recommended Action*\n• {{action_1}}\n• {{action_2}}\n• {{action_3}}" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "<{{link_1}}|{{link_1_label}}> • <{{link_2}}|{{link_2_label}}> • <{{link_3}}|{{link_3_label}}>" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "vendor": "Microsoft 365",
+  "confidence": "High",
+  "detected_time": "2026-04-03 07:42 PST",
+  "issue_summary": "Exchange Online delivery delays reported across multiple tenants.",
+  "impact": "Intermittent mail flow delay and admin confusion.",
+  "status": "Investigating",
+  "response_1": "Check Microsoft status and affected tenant symptoms",
+  "response_2": "Notify service desk to avoid duplicate escalations",
+  "source_1": "https://status.office.com",
+  "source_1_label": "Microsoft status",
+  "source_2": "https://example.com/outage-report",
+  "source_2_label": "Incident source"
+}

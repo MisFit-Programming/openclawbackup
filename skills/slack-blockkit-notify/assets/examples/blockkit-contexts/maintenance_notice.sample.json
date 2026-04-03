@@ -1,0 +1,8 @@
+{
+  "window": "2026-04-03 19:00–19:30 UTC",
+  "system": "OpenClaw Gateway",
+  "planned_change": "Apply configuration cleanup and verify allowlist/reporting settings.",
+  "impact": "Minor interruption to dashboard access may occur during the maintenance window.",
+  "rollback": "Restore previous config and restart gateway if validation fails.",
+  "operator_note": "Slack messaging should remain available, but dashboard sessions may need to reconnect."
+}

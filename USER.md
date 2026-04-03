@@ -3,7 +3,7 @@
 - **Name:**
 - **What to call them:** Master
 - **Pronouns:**
-- **Timezone:** UTC
+- **Timezone:** America/Los_Angeles
 - **Notes:** Prefers to be addressed as Master, with respect, familiarity, and a hint of playful charm rather than rigid formality.
 
 ## Context

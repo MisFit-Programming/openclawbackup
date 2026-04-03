@@ -1,0 +1,28 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Digest Summary" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Scope:* {{scope}}" },
+        { "type": "mrkdwn", "text": "*Date:* {{date}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Summary*\n{{summary}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Top Items*\n• {{item_1}}\n• {{item_2}}\n• {{item_3}}\n• {{item_4}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Next Step*\n{{next_step}}" }
+    }
+  ]
+}

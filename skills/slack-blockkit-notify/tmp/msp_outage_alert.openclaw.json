@@ -1,0 +1,73 @@
+{
+  "to": "channel:C09C91KVD88",
+  "content": "MSP outage alert: Kaseya / Datto RMM agent installs failing due to certificate errors; official status remains investigating.",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Outage Alert"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Vendor:* Kaseya / Datto RMM"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Detected:* 2026-04-02 14:25 EDT / 18:25 UTC"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Confidence:* High \u2014 official vendor status page"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Current Issue*\nDatto RMM reports an active incident where the RMM agent cannot be installed because of certificate errors across all listed platforms."
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Status*\nInvestigating; latest official update posted 2026-04-02 17:09 EDT saying the team is continuing to investigate."
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Impact*\nMSP technicians may be unable to deploy new Datto RMM agents or complete onboarding/redeployment work across EU, US, and APAC platforms."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Response*\n\u2022 Pause non-urgent Datto RMM agent rollout/reinstall work and flag onboarding/rebuild tasks that depend on fresh agent installs.\n\u2022 Check the incident page before retrying installs, and use alternate monitoring/remote-access coverage for newly provisioned endpoints until Kaseya posts a fix."
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "<https://status.kaseya.com/incidents/txl7ngjzs4qy|Kaseya incident> \u2022 <https://status.kaseya.com/|Kaseya status page>"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

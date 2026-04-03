@@ -1,0 +1,38 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Outage Alert" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Vendor:* {{vendor}}" },
+        { "type": "mrkdwn", "text": "*Detected:* {{detected_time}}" },
+        { "type": "mrkdwn", "text": "*Confidence:* {{confidence}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Current Issue*\n{{issue_summary}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Status*\n{{status}}" },
+        { "type": "mrkdwn", "text": "*Impact*\n{{impact}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Response*\n• {{response_1}}\n• {{response_2}}" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "<{{source_1}}|{{source_1_label}}> • <{{source_2}}|{{source_2_label}}>" }
+      ]
+    }
+  ]
+}

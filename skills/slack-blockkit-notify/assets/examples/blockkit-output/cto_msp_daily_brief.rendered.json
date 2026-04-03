@@ -1,0 +1,73 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "CTO Brief \u2014 MSP Daily"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Date:* 2026-04-03"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Audience:* CTO / MSP Leadership"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Executive Summary*\nOvernight risk remains centered on browser exploitation, cloud identity pressure, and vendor/service reliability that could affect MSP client operations."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Security*\n\u2022 Chrome zero-day patching remains high priority\n\u2022 Credential theft and phishing pressure remain elevated"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Tech / Vendor*\n\u2022 M365 / identity changes deserve review\n\u2022 Vendor reliability and outage posture remain key watch items"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*MSP Impact*\nMSPs should prioritize browser patching, identity monitoring, and vendor dependency awareness across client environments."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Recommended Actions*\n\u2022 Confirm browser patch compliance\n\u2022 Review high-risk identity and endpoint alerts\n\u2022 Watch major vendor status pages for disruption"
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://example.com/security1|Security item 1> \u2022 <https://example.com/tech1|Tech item 1> \u2022 <https://example.com/vendor1|Vendor item 1>"
+        }
+      ]
+    }
+  ]
+}

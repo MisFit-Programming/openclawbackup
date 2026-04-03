@@ -1,0 +1,14 @@
+{
+  "date": "2026-04-03",
+  "host": "openclaw-host",
+  "overall_status": "Attention needed, not urgent",
+  "update_status": "Up to date",
+  "critical_count": "0",
+  "warning_count": "3",
+  "info_count": "1",
+  "breakage_risk": "Low to medium",
+  "finding_1": "Reverse proxy trust is not configured",
+  "finding_2": "Some denyCommands entries are ineffective",
+  "finding_3": "Shared chat exposure increases trust-boundary risk",
+  "next_action": "Review and correct denyCommands entries first"
+}

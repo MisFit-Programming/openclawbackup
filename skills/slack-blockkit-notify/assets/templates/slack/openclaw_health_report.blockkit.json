@@ -1,0 +1,33 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Health Report" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Host:* {{host}}" },
+        { "type": "mrkdwn", "text": "*Date:* {{date}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Overall*\n{{overall_status}}" },
+        { "type": "mrkdwn", "text": "*Updates*\n{{update_status}}" },
+        { "type": "mrkdwn", "text": "*Counts*\n{{critical_count}} / {{warning_count}} / {{info_count}}" },
+        { "type": "mrkdwn", "text": "*Breakage Risk*\n{{breakage_risk}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Top Findings*\n• {{finding_1}}\n• {{finding_2}}\n• {{finding_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Next Step*\n{{next_action}}" }
+    }
+  ]
+}

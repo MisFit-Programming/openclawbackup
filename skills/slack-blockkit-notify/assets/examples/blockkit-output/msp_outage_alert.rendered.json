@@ -1,0 +1,67 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "MSP Outage Alert"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Vendor:* Microsoft 365"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Confidence:* High"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Detected:* 2026-04-03 07:42 PST"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Issue*\nExchange Online delivery delays reported across multiple tenants."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Impact*\nIntermittent mail flow delay and admin confusion."
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Status*\nInvestigating"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*MSP Response*\n\u2022 Check Microsoft status and affected tenant symptoms\n\u2022 Notify service desk to avoid duplicate escalations"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://status.office.com|Microsoft status> \u2022 <https://example.com/outage-report|Incident source>"
+        }
+      ]
+    }
+  ]
+}
