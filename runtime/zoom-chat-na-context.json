@@ -1,0 +1,17 @@
+{
+  "vendor": "Zoom",
+  "scope": "Global",
+  "priority": "P2",
+  "confidence": "High",
+  "detected_time": "2026-04-04 01:43 UTC",
+  "issue_summary": "Zoom reports an identified service degradation affecting a subset of users with Zoom Chat in the North America region. The issue remains unresolved as of the latest vendor update.",
+  "why_you_care": "Client chats, internal coordination, and support escalations that rely on Zoom Chat may be delayed or fail intermittently, generating user confusion and avoidable helpdesk noise.",
+  "impact": "North America subset; chat workflows degraded, while broader Zoom services are not indicated as down in the current incident notice.",
+  "status": "Identified — vendor says engineering is actively working on a resolution.",
+  "response_1": "Advise affected users to shift urgent conversations to Teams, email, SMS, or phone until chat behavior stabilizes.",
+  "response_2": "Watch for client reports tied specifically to Zoom Chat in North America and avoid treating this as a full Zoom platform outage.",
+  "source_1": "https://www.zoomstatus.com/incidents/bpjv2mznm75b",
+  "source_1_label": "Zoom status incident",
+  "source_2": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0068732",
+  "source_2_label": "Zoom support status reference"
+}

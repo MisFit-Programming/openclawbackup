@@ -8,8 +8,17 @@
       "scope": "local+global-relevance",
       "status_bucket": "identified",
       "summary": "Datto Workplace latency affecting multiple U.S. projects; root cause identified and corrective solution under evaluation."
+    },
+    "Zoom|Zoom Chat|zoom-chat-na-subset-users-service-degradation|global|identified": {
+      "sentAt": "2026-04-04T01:44:00Z",
+      "vendor": "Zoom",
+      "service": "Zoom Chat",
+      "incident_key": "zoom-chat-na-subset-users-service-degradation",
+      "scope": "global",
+      "status_bucket": "identified",
+      "summary": "Zoom Chat service degradation affecting a subset of North America users; vendor has identified the issue and is working on a resolution."
     }
   },
-  "lastUpdated": "2026-04-03T17:13:00Z",
+  "lastUpdated": "2026-04-04T01:44:00Z",
   "notes": "Used by the outage watch cron to suppress duplicate alerts across isolated runs."
 }

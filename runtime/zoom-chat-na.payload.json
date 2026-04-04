@@ -1,0 +1,89 @@
+{
+  "channel": "C0AQVSNKDV2",
+  "text": "MSP outage alert: Zoom Chat degradation affecting a subset of North America users",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Outage Alert"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Vendor:* Zoom"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Scope:* Global"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Priority:* P2"
+        }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Detected:* 2026-04-04 01:43 UTC"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Confidence:* High"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Current Issue*\nZoom reports an identified service degradation affecting a subset of users with Zoom Chat in the North America region. The issue remains unresolved as of the latest vendor update."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Why You Care*\nClient chats, internal coordination, and support escalations that rely on Zoom Chat may be delayed or fail intermittently, generating user confusion and avoidable helpdesk noise."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Status*\nIdentified \u2014 vendor says engineering is actively working on a resolution."
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Impact*\nNorth America subset; chat workflows degraded, while broader Zoom services are not indicated as down in the current incident notice."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Response*\n\u2022 Advise affected users to shift urgent conversations to Teams, email, SMS, or phone until chat behavior stabilizes.\n\u2022 Watch for client reports tied specifically to Zoom Chat in North America and avoid treating this as a full Zoom platform outage."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://www.zoomstatus.com/incidents/bpjv2mznm75b|Zoom status incident> \u2022 <https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0068732|Zoom support status reference>"
+        }
+      ]
+    }
+  ]
+}
