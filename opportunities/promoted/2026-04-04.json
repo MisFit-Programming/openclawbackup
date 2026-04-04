@@ -1,0 +1,27 @@
+{
+  "date": "2026-04-04",
+  "opportunity_id": "opp-2026-04-04-0001",
+  "name": "Client onboarding workflow hub",
+  "buyer": "Small service businesses",
+  "weighted_score": 8.12,
+  "recommendation": "promote",
+  "reasoning": [
+    "Repeated coordination pain appears across business communities",
+    "Strong fit for AI-assisted CRUD/workflow build",
+    "Clear 1-week demo surface area"
+  ],
+  "problem_statement": "Service businesses lose visibility and time during onboarding because status, handoffs, and notes live across email, spreadsheets, and chat.",
+  "ideal_customer_profile": "Small-to-mid service businesses with repeatable client onboarding workflows",
+  "pricing_hypothesis": "$49-$199/month",
+  "mvp_scope": [
+    "Task checklist",
+    "Status board",
+    "Owner assignment"
+  ],
+  "demo_scope_1_week": [
+    "Single workspace",
+    "Onboarding template",
+    "Basic dashboard"
+  ],
+  "codex_prompt": "Build a demo-ready MVP for a client onboarding workflow hub using a fast AI-assisted stack. Focus on one workspace, task/status tracking, owner assignment, and a simple dashboard."
+}

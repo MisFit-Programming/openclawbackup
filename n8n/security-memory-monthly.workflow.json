@@ -1,0 +1,48 @@
+{
+  "name": "Security Memory Monthly",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [ { "field": "cronExpression", "expression": "0 4 1 * *" } ] } },
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 200]
+    },
+    {
+      "parameters": {
+        "resource": "command",
+        "command": "set -e\nNOW=\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"\necho \"MEMORY_AUDIT_START\"\necho \"checked_at=$NOW\"\necho \"--- MEMORY FILES ---\"\nfind /root/.openclaw/workspace/memory -maxdepth 1 -type f | sort 2>/dev/null || true\necho \"--- MEMORY HEADS ---\"\nfor f in /root/.openclaw/workspace/memory/*.md; do [ -e \"$f\" ] || continue; echo \"FILE:$f\"; sed -n '1,20p' \"$f\"; done\n",
+        "clearOutput": false
+      },
+      "id": "ssh",
+      "name": "SSH Memory Audit",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [500, 200],
+      "credentials": { "sshPassword": { "id": "REPLACE_ME", "name": "OpenClaw Host SSH" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.stdout || $json.data || $json.response || '';\nconst now = new Date().toISOString();\nconst files = (raw.match(/^FILE:.*$/gm) || []).map(s => s.slice(5));\nconst healthy = files.length > 0;\nconst blocks = [\n  { type: 'header', text: { type: 'plain_text', text: '🧠 Security Memory Monthly' } },\n  { type: 'context', elements: [ { type: 'mrkdwn', text: `*Checked:* ${now}` }, { type: 'mrkdwn', text: `*Files Found:* ${files.length}` } ] },\n  { type: 'divider' },\n  { type: 'section', text: { type: 'mrkdwn', text: files.length ? `*Memory files*\\n• ${files.slice(0, 10).join('\\n• ')}` : 'No memory files found.' } }\n];\nreturn [{ json: { checkedAt: now, healthy, status: healthy ? 'OK' : 'Missing Memory Files', slackText: `🧠 Security memory monthly: ${healthy ? 'OK' : 'Missing memory files'}`, slackBlocks: blocks } }];"
+      },
+      "id": "parse",
+      "name": "Parse + Build Card",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 200]
+    },
+    {
+      "parameters": { "resource": "message", "operation": "post", "channel": "C0AQARFMWMV", "text": "={{ $json.slackText }}", "otherOptions": { "blocksUi": { "blockValues": [ { "blocks": "={{ JSON.stringify($json.slackBlocks) }}" } ] } } },
+      "id": "slack",
+      "name": "Send Slack Block Kit",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1020, 200],
+      "credentials": { "slackApi": { "id": "REPLACE_ME", "name": "Slack account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": { "Schedule Trigger": { "main": [[{ "node": "SSH Memory Audit", "type": "main", "index": 0 }]] }, "SSH Memory Audit": { "main": [[{ "node": "Parse + Build Card", "type": "main", "index": 0 }]] }, "Parse + Build Card": { "main": [[{ "node": "Send Slack Block Kit", "type": "main", "index": 0 }]] } },
+  "active": false, "settings": { "executionOrder": "v1" }, "versionId": "1", "meta": { "templateCredsSetupCompleted": false }, "id": "security-memory-monthly", "tags": ["security", "memory"]
+}

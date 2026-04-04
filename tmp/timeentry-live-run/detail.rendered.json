@@ -12,7 +12,7 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "*Generated:* 2026-04-03 18:38 UTC"
+          "text": "*Generated:* 2026-04-04 15:58 UTC"
         },
         {
           "type": "mrkdwn",
@@ -27,7 +27,7 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Training Needs*\n\u2022 Resource 29682913 needs tighter note quality and clearer action/outcome detail.\n`updated the quote to include a line item for labor sent the approved quote to the client`\n\u2022 Resource 29682911 needs tighter note quality and clearer action/outcome detail.\n`left voicemail and email for Joelle and Aaron`\n\u2022 Resource 29682903 needs tighter note quality and clearer action/outcome detail.\n`Review to assign: -Sent email on recommendation -Closing ticket.`"
+        "text": "*Training Needs*\n\u2022 Resource 29682889 needs tighter note quality and clearer action/outcome detail.\n`I emailed Matt and Sherrie for permission to give the user Screen Connect.`\n\u2022 Resource 29682903 needs tighter note quality and clearer action/outcome detail.\n`review to assign -assign to casey`\n\u2022 Resource 29682903 needs tighter note quality and clearer action/outcome detail.\n`review to assign -assign to Phil`"
       }
     },
     {
@@ -41,28 +41,28 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Time Waste / Inefficiency*\n\u2022 Resource 29682913 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`updated the quote to include a line item for labor sent the approved quote to the client`\n\u2022 Resource 29682911 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`left voicemail and email for Joelle and Aaron`\n\u2022 Resource 29682903 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`Review to assign: -Sent email on recommendation -Closing ticket.`"
+        "text": "*Time Waste / Inefficiency*\n\u2022 Resource 29682889 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`I emailed Matt and Sherrie for permission to give the user Screen Connect.`\n\u2022 Resource 29682903 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`review to assign -assign to casey`\n\u2022 Resource 29682903 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`review to assign -assign to Phil`"
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Hygiene / Documentation Gaps*\n\u2022 Resource 29682913 is leaving notes that are too thin to reuse as runbook evidence.\n`updated the quote to include a line item for labor sent the approved quote to the client`\n\u2022 Resource 29682911 is leaving notes that are too thin to reuse as runbook evidence.\n`left voicemail and email for Joelle and Aaron`\n\u2022 Resource 29682903 is leaving notes that are too thin to reuse as runbook evidence.\n`Review to assign: -Sent email on recommendation -Closing ticket.`"
+        "text": "*Hygiene / Documentation Gaps*\n\u2022 Resource 29682889 is leaving notes that are too thin to reuse as runbook evidence.\n`I emailed Matt and Sherrie for permission to give the user Screen Connect.`\n\u2022 Resource 29682903 is leaving notes that are too thin to reuse as runbook evidence.\n`review to assign -assign to casey`\n\u2022 Resource 29682903 is leaving notes that are too thin to reuse as runbook evidence.\n`review to assign -assign to Phil`"
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Resource Observations*\n\u2022 Resource 29682903: 30 entries / 7.30h\n\u2022 Resource 29682911: 24 entries / 4.67h\n\u2022 Resource 29682889: 15 entries / 10.50h"
+        "text": "*Resource Observations*\n\u2022 Resource 29682903: 23 entries / 4.70h\n\u2022 Resource 29682889: 15 entries / 8.03h\n\u2022 Resource 29682913: 9 entries / 2.58h"
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Sample Appendix*\n\u2022 Entry 21636 / Res 29682913 / Ticket 27347 / 0.08h / updated the quote to include a line item for labor sent the approved quote to the client\n\u2022 Entry 21637 / Res 29682911 / Ticket 28914 / 0.05h / left voicemail and email for Joelle and Aaron\n\u2022 Entry 21640 / Res 29682903 / Ticket 28918 / 0.05h / Review to assign: -Sent email on recommendation -Closing ticket."
+        "text": "*Sample Appendix*\n\u2022 Entry 21770 / Res 29682889 / Ticket 28972 / 0.08h / I emailed Matt and Sherrie for permission to give the user Screen Connect.\n\u2022 Entry 21776 / Res 29682903 / Ticket 29039 / 0.07h / review to assign -assign to casey\n\u2022 Entry 21777 / Res 29682903 / Ticket 29040 / 0.05h / review to assign -assign to Phil"
       }
     }
   ]

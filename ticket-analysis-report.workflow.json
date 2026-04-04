@@ -1,0 +1,128 @@
+{
+  "name": "Ticket Analysis Report",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 2 * * *"
+            }
+          ]
+        }
+      },
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 320]
+    },
+    {
+      "parameters": {
+        "resource": "command",
+        "command": "set -e\n\necho \"TICKET_ANALYSIS_START\"\n\n# Replace this section with your real report source if needed.\n# The workflow expects plain text or JSON-ish output that can be parsed downstream.\nif [ -n \"${TICKET_ANALYSIS_SOURCE:-}\" ] && [ -f \"${TICKET_ANALYSIS_SOURCE}\" ]; then\n  cat \"${TICKET_ANALYSIS_SOURCE}\"\nelse\n  echo \"No ticket-analysis source file provided.\"\n  echo \"Set TICKET_ANALYSIS_SOURCE to a file path on the SSH target.\"\nfi\n",
+        "clearOutput": false
+      },
+      "id": "source",
+      "name": "Fetch Ticket Analysis Source",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [520, 320],
+      "credentials": {
+        "sshPassword": {
+          "id": "REPLACE_ME",
+          "name": "DigitalOcean Droplet SSH"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.stdout || $json.data || $json.response || '';\n\nfunction trimToLines(text, limit) {\n  return String(text || '')\n    .split('\\n')\n    .map(l => l.trim())\n    .filter(Boolean)\n    .slice(0, limit);\n}\n\nfunction pickLines(lines, patterns, limit = 3) {\n  const picked = [];\n  for (const line of lines) {\n    if (patterns.some((rx) => rx.test(line))) {\n      picked.push(line);\n    }\n    if (picked.length >= limit) break;\n  }\n  return picked;\n}\n\nconst lines = trimToLines(raw, 200);\nconst text = lines.join('\\n');\n\nconst section = (start, end) => {\n  const s = text.indexOf(start);\n  if (s === -1) return '';\n  const from = s + start.length;\n  const e = end ? text.indexOf(end, from) : -1;\n  return text.slice(from, e === -1 ? undefined : e).trim();\n};\n\nconst hasJson = text.startsWith('{') || text.startsWith('[');\nlet parsed = null;\nif (hasJson) {\n  try {\n    parsed = JSON.parse(text);\n  } catch (e) {\n    parsed = null;\n  }\n}\n\nconst criticalPatterns = [ /critical/i, /sev[ -]?1/i, /p1/i, /outage/i, /down/i, /data loss/i ];\nconst warningPatterns = [ /high/i, /sev[ -]?2/i, /p2/i, /degraded/i, /latency/i, /error/i ];\nconst infoPatterns = [ /low/i, /sev[ -]?3/i, /p3/i, /info/i ];\n\nlet title = 'Ticket Analysis Report';\nlet summary = 'No structured ticket summary found in the source.';\nlet critical = [];\nlet warnings = [];\nlet info = [];\nlet actions = [];\nlet links = [];\n\nif (parsed && typeof parsed === 'object') {\n  title = parsed.title || parsed.name || title;\n  summary = parsed.summary || parsed.executive_summary || summary;\n  critical = Array.isArray(parsed.critical) ? parsed.critical : Array.isArray(parsed.critical_items) ? parsed.critical_items : [];\n  warnings = Array.isArray(parsed.warnings) ? parsed.warnings : Array.isArray(parsed.warning_items) ? parsed.warning_items : [];\n  info = Array.isArray(parsed.info) ? parsed.info : Array.isArray(parsed.info_items) ? parsed.info_items : [];\n  actions = Array.isArray(parsed.actions) ? parsed.actions : Array.isArray(parsed.recommended_actions) ? parsed.recommended_actions : [];\n  links = Array.isArray(parsed.links) ? parsed.links : [];\n} else {\n  critical = pickLines(lines, criticalPatterns, 5);\n  warnings = pickLines(lines, warningPatterns, 5);\n  info = pickLines(lines, infoPatterns, 5);\n  actions = pickLines(lines, [/fix/i, /next step/i, /recommend/i, /action/i], 5);\n  summary = lines.slice(0, 8).join(' ');\n}\n\nconst overallStatus = critical.length ? 'Needs Immediate Attention' : warnings.length ? 'Monitor Closely' : 'Healthy';\nconst statusEmoji = critical.length ? '🚨' : warnings.length ? '⚠️' : '✅';\n\nconst safeText = (value, fallback = '—') => {\n  const s = String(value ?? '').trim();\n  return s.length ? s : fallback;\n};\n\nconst bullets = (arr, fallback = 'None') => {\n  if (!arr || !arr.length) return fallback;\n  return arr.slice(0, 5).map((item) => `• ${safeText(item)}`).join('\\n');\n};\n\nconst linkCtx = links[0] || {};\nconst secondLink = links[1] || {};\nconst thirdLink = links[2] || {};\n\nconst blocks = [\n  {\n    type: 'header',\n    text: { type: 'plain_text', text: `${statusEmoji} ${title}` }\n  },\n  {\n    type: 'context',\n    elements: [\n      { type: 'mrkdwn', text: `*Status:* ${overallStatus}` },\n      { type: 'mrkdwn', text: `*Checked:* ${new Date().toISOString()}` }\n    ]\n  },\n  { type: 'divider' },\n  {\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Summary*\\n${safeText(summary)}` }\n  },\n  {\n    type: 'section',\n    fields: [\n      { type: 'mrkdwn', text: `*Critical*\\n${critical.length}` },\n      { type: 'mrkdwn', text: `*Warnings*\\n${warnings.length}` },\n      { type: 'mrkdwn', text: `*Info*\\n${info.length}` },\n      { type: 'mrkdwn', text: `*Actions*\\n${actions.length}` }\n    ]\n  },\n  {\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Critical Findings*\\n${bullets(critical)}` }\n  },\n  {\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Warnings*\\n${bullets(warnings)}` }\n  },\n  {\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Recommended Actions*\\n${bullets(actions)}` }\n  },\n  {\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Informational Items*\\n${bullets(info)}` }\n  }\n];\n\nif (linkCtx.url || secondLink.url || thirdLink.url) {\n  blocks.push({\n    type: 'context',\n    elements: [\n      { type: 'mrkdwn', text: `<${safeText(linkCtx.url, '#')}|${safeText(linkCtx.label, 'Source 1')}> • <${safeText(secondLink.url, '#')}|${safeText(secondLink.label, 'Source 2')}> • <${safeText(thirdLink.url, '#')}|${safeText(thirdLink.label, 'Source 3')}>` }\n    ]\n  });\n}\n\nreturn [{\n  json: {\n    title,\n    overallStatus,\n    critical,\n    warnings,\n    info,\n    actions,\n    summary,\n    checkedAt: new Date().toISOString(),\n    slackText: `${statusEmoji} ${title}: ${overallStatus}`,\n    slackBlocks: blocks\n  }\n}];"
+      },
+      "id": "parse",
+      "name": "Parse + Build Card",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [800, 320]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": "YOUR_SLACK_CHANNEL_ID",
+        "text": "={{ $json.slackText }}",
+        "otherOptions": {
+          "blocksUi": {
+            "blockValues": [
+              {
+                "blocks": "={{ JSON.stringify($json.slackBlocks) }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "slack",
+      "name": "Send Slack Block Kit",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1080, 320],
+      "credentials": {
+        "slackApi": {
+          "id": "REPLACE_ME",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Ticket Analysis Source",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Ticket Analysis Source": {
+      "main": [
+        [
+          {
+            "node": "Parse + Build Card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse + Build Card": {
+      "main": [
+        [
+          {
+            "node": "Send Slack Block Kit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "id": "ticket-analysis-report",
+  "tags": [
+    "ticket-analysis",
+    "slack",
+    "n8n"
+  ]
+}

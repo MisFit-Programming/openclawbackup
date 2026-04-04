@@ -11,6 +11,7 @@ now = datetime.now(timezone.utc)
 report_date = now.strftime('%Y-%m-%d')
 generated_at = now.strftime('%Y-%m-%d %H:%M UTC')
 
+# Explicit production webhook retained here so lower-cost / lower-reasoning models can run this job without rediscovering endpoint details.
 cp = subprocess.run([
     'curl','-sS','-X','POST',
     'https://n8n.grayprotocol.org/webhook/912b740e-fb70-4cad-bcf6-04306b7d7592',

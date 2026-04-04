@@ -1,0 +1,86 @@
+{
+  "name": "OpenClaw Health Check",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 19 * * *"
+            }
+          ]
+        }
+      },
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 320]
+    },
+    {
+      "parameters": {
+        "resource": "command",
+        "command": "set -e\nNOW=\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"\necho \"OPENCLAW_CHECK_START\"\necho \"checked_at=$NOW\"\necho \"--- SERVICES ---\"\n(openclaw gateway status 2>/dev/null || true)\necho \"--- DOCKER ---\"\ndocker ps --format '{{.Names}}|{{.Image}}|{{.Status}}' | sort\necho \"--- OPENCLAW BINDINGS ---\"\nss -ltnp 2>/dev/null | grep -E ':(18789|18791) ' || true\necho \"--- RECENT ERROR LOGS ---\"\ndocker logs --since 24h n8n-docker-caddy-n8n-1 2>/dev/null | tail -n 80 || true\n",
+        "clearOutput": false
+      },
+      "id": "ssh-check",
+      "name": "SSH Check Host",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [520, 320],
+      "credentials": {
+        "sshPassword": {
+          "id": "REPLACE_ME",
+          "name": "OpenClaw Host SSH"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.stdout || $json.data || $json.response || '';\nconst now = new Date().toISOString();\nconst getSection = (start, nextMarkers = []) => {\n  const i = raw.indexOf(start);\n  if (i === -1) return '';\n  const from = i + start.length;\n  let end = raw.length;\n  for (const marker of nextMarkers) {\n    const j = raw.indexOf(marker, from);\n    if (j !== -1 && j < end) end = j;\n  }\n  return raw.slice(from, end).trim();\n};\nconst markers = ['OPENCLAW_CHECK_START', '--- SERVICES ---', '--- DOCKER ---', '--- OPENCLAW BINDINGS ---', '--- RECENT ERROR LOGS ---'];\nconst docker = getSection('--- DOCKER ---', markers);\nconst bindings = getSection('--- OPENCLAW BINDINGS ---', markers);\nconst logs = getSection('--- RECENT ERROR LOGS ---', markers);\nconst dockerLines = docker.split('\\n').filter(Boolean);\nconst openclawContainer = dockerLines.find(l => /n8n|openclaw/i.test(l)) || '';\nconst hasLoopbackBindings = /127\\.0\\.0\\.1:18789|127\\.0\\.0\\.1:18791/.test(bindings);\nconst errorLines = logs.split('\\n').filter(l => /error|fatal|panic|exception|traceback|denied|failed|econnrefused|timeout/i.test(l)).slice(0, 12);\nconst findings = [];\nif (!hasLoopbackBindings) findings.push({ issue: 'OpenClaw is not bound to loopback', why: 'Expected ports 18789/18791 were not found listening on 127.0.0.1.', check: 'ss -ltnp | grep -E :(18789|18791)', fix: 'restart OpenClaw/gateway and verify localhost bindings' });\nif (errorLines.length) findings.push({ issue: 'recent error-like logs found', why: 'Recent container logs contain error keywords.', check: 'docker logs --tail 120 n8n-docker-caddy-n8n-1', fix: 'inspect logs and restart if necessary' });\nconst healthy = findings.length === 0;\nconst status = healthy ? 'Healthy' : 'Needs Attention';\nconst emoji = healthy ? '✅' : '🚨';\nconst first = findings[0] || null;\nconst blocks = [ { type: 'header', text: { type: 'plain_text', text: `${emoji} OpenClaw Health Check` } }, { type: 'context', elements: [ { type: 'mrkdwn', text: `*Checked:* ${now}` }, { type: 'mrkdwn', text: `*Status:* ${status}` } ] }, { type: 'divider' }, { type: 'section', fields: [ { type: 'mrkdwn', text: `*Loopback Bindings*\\n${hasLoopbackBindings ? 'Yes' : 'No'}` }, { type: 'mrkdwn', text: `*OpenClaw Container*\\n${openclawContainer || 'Not clearly detected'}` } ] } ]; if (first) { blocks.push({ type: 'section', text: { type: 'mrkdwn', text: `*First Issue*\\n*${first.issue}*\\n${first.why}` } }); blocks.push({ type: 'section', fields: [ { type: 'mrkdwn', text: `*Check*\\n${first.check}` }, { type: 'mrkdwn', text: `*Fix*\\n${first.fix}` } ] }); } if (errorLines.length) blocks.push({ type: 'section', text: { type: 'mrkdwn', text: `*Recent Error Lines*\\n\\`\\`\\`\\n${errorLines.join('\\n').slice(0, 2500)}\\n\\`\\`\\`` } }); blocks.push({ type: 'context', elements: [ { type: 'mrkdwn', text: healthy ? 'Quiet system. No obvious drama.' : `First fix is ready. ${findings.length - 1} more item(s) also need attention.` } ] }); return [{ json: { checkedAt: now, status, healthy, findings, slackText: `${emoji} OpenClaw health check: ${status}`, slackBlocks: blocks } }];"
+      },
+      "id": "parse",
+      "name": "Parse + Build Card",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [800, 320]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": "C0AQARFMWMV",
+        "text": "={{ $json.slackText }}",
+        "otherOptions": {
+          "blocksUi": {
+            "blockValues": [ { "blocks": "={{ JSON.stringify($json.slackBlocks) }}" } ]
+          }
+        }
+      },
+      "id": "slack",
+      "name": "Send Slack Block Kit",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1080, 320],
+      "credentials": {
+        "slackApi": {
+          "id": "REPLACE_ME",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": { "main": [[{ "node": "SSH Check Host", "type": "main", "index": 0 }]] },
+    "SSH Check Host": { "main": [[{ "node": "Parse + Build Card", "type": "main", "index": 0 }]] },
+    "Parse + Build Card": { "main": [[{ "node": "Send Slack Block Kit", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "1",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "openclaw-health-check",
+  "tags": ["openclaw", "health"]
+}

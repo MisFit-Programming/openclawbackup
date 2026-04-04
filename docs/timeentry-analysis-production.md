@@ -4,7 +4,12 @@ Destination channel: `C0AQWG1UWUC`
 Schedule: daily at `3:00 AM America/Los_Angeles`
 Privacy: resource IDs only, company/customer IDs only
 Input source: n8n production webhook
+Webhook endpoint: `https://n8n.grayprotocol.org/webhook/912b740e-fb70-4cad-bcf6-04306b7d7592`
 Webhook body: `{"code":"TimeEntry24h"}`
+
+## Low-model / reduced-reasoning execution rule
+Use the webhook as the source of truth for data retrieval so smaller/cheaper models do not have to rediscover endpoints or reconstruct fetch logic.
+When implementing or revising any automation for this report, keep the webhook endpoint and request body explicit in the prompt/spec/script.
 
 ## Confirmed payload shape
 

@@ -18,11 +18,11 @@
         },
         {
           "type": "mrkdwn",
-          "text": "*Entries:* 84"
+          "text": "*Entries:* 53"
         },
         {
           "type": "mrkdwn",
-          "text": "*Resources:* 6"
+          "text": "*Resources:* 5"
         }
       ]
     },
@@ -31,7 +31,7 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "*Maintenance:* 1 maintenance entry(s)"
+          "text": "*Maintenance:* 0 maintenance entry(s)"
         },
         {
           "type": "mrkdwn",
@@ -46,7 +46,7 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Executive Read*\nAnalyzed 84 time entries across 6 resource IDs with primary focus on training, automation, and wasted effort. Maintenance was isolated at 1 entry(s). The ugliest signals are repetitive quarter-hour fragments, thin summary notes, and policy-shaped work that should not keep stealing technician attention by hand."
+        "text": "*Executive Read*\nAnalyzed 53 time entries across 5 resource IDs with primary focus on training, automation, and wasted effort. Maintenance was isolated at 0 entry(s). The ugliest signals are repetitive quarter-hour fragments, thin summary notes, and policy-shaped work that should not keep stealing technician attention by hand."
       }
     },
     {
@@ -54,7 +54,7 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Training Signal*\nResource 29682913 needs tighter note quality and clearer action/outcome detail."
+          "text": "*Training Signal*\nResource 29682889 needs tighter note quality and clearer action/outcome detail."
         },
         {
           "type": "mrkdwn",
@@ -62,11 +62,11 @@
         },
         {
           "type": "mrkdwn",
-          "text": "*Time Waste Signal*\nResource 29682913 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing."
+          "text": "*Time Waste Signal*\nResource 29682889 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing."
         },
         {
           "type": "mrkdwn",
-          "text": "*Hygiene Signal*\nResource 29682913 is leaving notes that are too thin to reuse as runbook evidence."
+          "text": "*Hygiene Signal*\nResource 29682889 is leaving notes that are too thin to reuse as runbook evidence."
         }
       ]
     },
@@ -74,14 +74,14 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Evidence Snapshot*\n`updated the quote to include a line item for labor sent the approved quote to the client`"
+        "text": "*Evidence Snapshot*\n`I emailed Matt and Sherrie for permission to give the user Screen Connect.`"
       }
     },
     {
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Manager Attention*\n\u2022 Resource 29682913 needs tighter note quality and clearer action/outcome detail.\n\u2022 No dominant automation signal yet from the current batch.\n\u2022 Resource 29682913 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing."
+        "text": "*Manager Attention*\n\u2022 Resource 29682889 needs tighter note quality and clearer action/outcome detail.\n\u2022 No dominant automation signal yet from the current batch.\n\u2022 Resource 29682889 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing."
       }
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "run_id": "2026-04-04-daily",
+  "started_at": "2026-04-04T13:00:30.781658",
+  "stages": {
+    "scout": "ok",
+    "validate": "ok",
+    "digest": "ok",
+    "promote": "ok"
+  },
+  "scored_file": "/root/.openclaw/workspace/opportunities/scored/2026-04-04.json",
+  "top_score": 8.12,
+  "promoted": true,
+  "finished_at": "2026-04-04T13:00:40.534554",
+  "summary": "Scored 2 opportunities; top score 8.12; promoted=True"
+}

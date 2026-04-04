@@ -1,0 +1,65 @@
+{
+  "name": "Security Gateway Weekly",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "field": "cronExpression", "expression": "0 4 * * 1" }
+          ]
+        }
+      },
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 200]
+    },
+    {
+      "parameters": {
+        "resource": "command",
+        "command": "set -e\nNOW=\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"\n{\n  echo \"GATEWAY_AUDIT_START\"\n  echo \"checked_at=$NOW\"\n  echo \"--- OPENCLAW VERSION ---\"\n  openclaw --version 2>/dev/null || true\n  echo \"--- GATEWAY STATUS ---\"\n  openclaw gateway status 2>/dev/null || true\n  echo \"--- LISTENERS ---\"\n  ss -ltnp 2>/dev/null | grep -E ':(18789|18791) ' || true\n  echo \"--- CADDY ---\"\n  systemctl is-active caddy 2>/dev/null || true\n  systemctl is-enabled caddy 2>/dev/null || true\n}\n",
+        "clearOutput": false
+      },
+      "id": "ssh",
+      "name": "SSH Gateway Audit",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [500, 200],
+      "credentials": { "sshPassword": { "id": "REPLACE_ME", "name": "OpenClaw Host SSH" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.stdout || $json.data || $json.response || '';\nconst now = new Date().toISOString();\nconst caddyActive = /active/.test(raw.split('--- CADDY ---')[1] || '');\nconst loopback = /127\\.0\\.0\\.1:18789|127\\.0\\.0\\.1:18791/.test(raw);\nconst healthy = loopback && !caddyActive;\nconst status = healthy ? 'Healthy' : 'Needs Attention';\nconst emoji = healthy ? '✅' : '🚨';\nconst blocks = [\n  { type: 'header', text: { type: 'plain_text', text: `${emoji} Security Gateway Weekly` } },\n  { type: 'context', elements: [ { type: 'mrkdwn', text: `*Checked:* ${now}` }, { type: 'mrkdwn', text: `*Status:* ${status}` } ] },\n  { type: 'divider' },\n  { type: 'section', fields: [\n    { type: 'mrkdwn', text: `*Loopback Bindings*\\n${loopback ? 'Yes' : 'No'}` },\n    { type: 'mrkdwn', text: `*Caddy*\\n${caddyActive ? 'Active' : 'Inactive'}` }\n  ] }\n];\nif (!healthy) blocks.push({ type: 'section', text: { type: 'mrkdwn', text: `*Next Step*\\n${loopback ? 'Disable Caddy.' : 'Restore localhost bindings and verify gateway.'}` } });\nreturn [{ json: { checkedAt: now, healthy, status, slackText: `${emoji} Security gateway weekly: ${status}`, slackBlocks: blocks } }];"
+      },
+      "id": "parse",
+      "name": "Parse + Build Card",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 200]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": "C0AQARFMWMV",
+        "text": "={{ $json.slackText }}",
+        "otherOptions": { "blocksUi": { "blockValues": [ { "blocks": "={{ JSON.stringify($json.slackBlocks) }}" } ] } }
+      },
+      "id": "slack",
+      "name": "Send Slack Block Kit",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1020, 200],
+      "credentials": { "slackApi": { "id": "REPLACE_ME", "name": "Slack account" } }
+    }
+  ],
+  "pinData": {},
+  "connections": { "Schedule Trigger": { "main": [[{ "node": "SSH Gateway Audit", "type": "main", "index": 0 }]] }, "SSH Gateway Audit": { "main": [[{ "node": "Parse + Build Card", "type": "main", "index": 0 }]] }, "Parse + Build Card": { "main": [[{ "node": "Send Slack Block Kit", "type": "main", "index": 0 }]] } },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "1",
+  "meta": { "templateCredsSetupCompleted": false },
+  "id": "security-gateway-weekly",
+  "tags": ["security", "gateway"]
+}

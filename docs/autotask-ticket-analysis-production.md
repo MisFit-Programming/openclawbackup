@@ -5,6 +5,10 @@ Schedule: daily at `2:00 AM America/Los_Angeles`
 Privacy: company IDs only
 Input source: n8n production webhook
 
+## Low-model / reduced-reasoning execution rule
+Use the webhook as the source of truth for ticket retrieval so smaller/cheaper models do not have to rediscover endpoints or reconstruct fetch logic.
+When implementing or revising any automation for this report, keep the webhook endpoint and request body explicit in the prompt/spec/script.
+
 ## User requirements
 
 - maintenance is its own metric, not mixed into the main non-maintenance rankings

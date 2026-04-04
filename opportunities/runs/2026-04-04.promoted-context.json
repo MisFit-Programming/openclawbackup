@@ -1,0 +1,14 @@
+{
+  "name": "Client onboarding workflow hub",
+  "score": "8.12",
+  "problem_statement": "Service businesses lose visibility and time during onboarding because status, handoffs, and notes live across email, spreadsheets, and chat.",
+  "ideal_customer_profile": "Small-to-mid service businesses with repeatable client onboarding workflows",
+  "pricing_hypothesis": "$49-$199/month",
+  "mvp_1": "Task checklist",
+  "mvp_2": "Status board",
+  "mvp_3": "Owner assignment",
+  "demo_1": "Single workspace",
+  "demo_2": "Onboarding template",
+  "demo_3": "Basic dashboard",
+  "codex_prompt": "Build a demo-ready MVP for a client onboarding workflow hub using a fast AI-assisted stack. Focus on one workspace, task/status tracking, owner assignment, and a simple dashboard."
+}

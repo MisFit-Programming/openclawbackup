@@ -1,0 +1,83 @@
+{
+  "name": "OpenClaw Assistant Admin",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "5 19 * * *"
+            }
+          ]
+        }
+      },
+      "id": "schedule",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 320]
+    },
+    {
+      "parameters": {
+        "resource": "command",
+        "command": "set -e\nNOW=\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"\necho \"ADMIN_START\"\necho \"checked_at=$NOW\"\necho \"--- GIT STATUS ---\"\ncd /root/.openclaw/workspace && git status --short || true\necho \"--- DISK ---\"\ndf -h / /root/.openclaw/workspace || true\necho \"--- BACKUP FILES ---\"\nfind /root/.openclaw/workspace -maxdepth 2 \( -name '*.skill' -o -name 'MEMORY.md' -o -name 'HEARTBEAT.md' -o -name 'docs' \) 2>/dev/null | head -n 40 || true\n",
+        "clearOutput": false
+      },
+      "id": "ssh-check",
+      "name": "SSH Admin Check",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [520, 320],
+      "credentials": {
+        "sshPassword": {
+          "id": "REPLACE_ME",
+          "name": "OpenClaw Host SSH"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.stdout || $json.data || $json.response || '';\nconst now = new Date().toISOString();\nconst lines = String(raw).split('\\n').map(s => s.trim()).filter(Boolean);\nconst gitLines = lines.filter(l => !l.startsWith('---') && !l.startsWith('ADMIN_START') && !l.startsWith('checked_at='));\nconst dirty = gitLines.some(l => /^[MADRCU?]/.test(l));\nconst diskLine = lines.find(l => /^\\/dev\\//.test(l)) || '';\nconst healthy = !dirty;\nconst status = healthy ? 'Clean' : 'Changes Present';\nconst emoji = healthy ? '✅' : '⚠️';\nconst blocks = [ { type: 'header', text: { type: 'plain_text', text: `${emoji} OpenClaw Assistant Admin` } }, { type: 'context', elements: [ { type: 'mrkdwn', text: `*Checked:* ${now}` }, { type: 'mrkdwn', text: `*Status:* ${status}` } ] }, { type: 'divider' }, { type: 'section', text: { type: 'mrkdwn', text: `*Git Status*\\n${dirty ? 'Working tree has changes.' : 'Working tree clean.'}` } }, { type: 'section', text: { type: 'mrkdwn', text: `*Disk*\\n${diskLine || 'No disk line found.'}` } } ]; return [{ json: { checkedAt: now, status, healthy, slackText: `${emoji} OpenClaw assistant admin: ${status}`, slackBlocks: blocks } }];"
+      },
+      "id": "parse",
+      "name": "Parse + Build Card",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [800, 320]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": "C0AQARJ005V",
+        "text": "={{ $json.slackText }}",
+        "otherOptions": {
+          "blocksUi": {
+            "blockValues": [ { "blocks": "={{ JSON.stringify($json.slackBlocks) }}" } ]
+          }
+        }
+      },
+      "id": "slack",
+      "name": "Send Slack Block Kit",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1080, 320],
+      "credentials": {
+        "slackApi": {
+          "id": "REPLACE_ME",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": { "main": [[{ "node": "SSH Admin Check", "type": "main", "index": 0 }]] },
+    "SSH Admin Check": { "main": [[{ "node": "Parse + Build Card", "type": "main", "index": 0 }]] },
+    "Parse + Build Card": { "main": [[{ "node": "Send Slack Block Kit", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "1", "meta": { "templateCredsSetupCompleted": false }, "id": "openclaw-assistant-admin", "tags": ["openclaw", "admin"]
+}
