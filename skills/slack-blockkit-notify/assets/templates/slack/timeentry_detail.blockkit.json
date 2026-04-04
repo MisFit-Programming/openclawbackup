@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Time Entry Detailed Breakdown" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Generated:* {{generated_at}}" },
+        { "type": "mrkdwn", "text": "*Resource IDs only*" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Training Needs*\n• {{training_1}}\n`{{training_ex_1}}`\n• {{training_2}}\n`{{training_ex_2}}`\n• {{training_3}}\n`{{training_ex_3}}`" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Automation Opportunities*\n• {{automation_1}}\n`{{automation_ex_1}}`\n• {{automation_2}}\n`{{automation_ex_2}}`\n• {{automation_3}}\n`{{automation_ex_3}}`" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Time Waste / Inefficiency*\n• {{waste_1}}\n`{{waste_ex_1}}`\n• {{waste_2}}\n`{{waste_ex_2}}`\n• {{waste_3}}\n`{{waste_ex_3}}`" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Hygiene / Documentation Gaps*\n• {{doc_1}}\n`{{doc_ex_1}}`\n• {{doc_2}}\n`{{doc_ex_2}}`\n• {{doc_3}}\n`{{doc_ex_3}}`" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Resource Observations*\n• {{resource_1}}\n• {{resource_2}}\n• {{resource_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Sample Appendix*\n• {{appendix_1}}\n• {{appendix_2}}\n• {{appendix_3}}" }
+    }
+  ]
+}

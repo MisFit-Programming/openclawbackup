@@ -1,0 +1,10 @@
+{
+  "job_name": "routing:lane-verification",
+  "detected_time": "2026-04-03 16:30 UTC",
+  "severity": "Test / Medium",
+  "failure_summary": "Controlled test card for the cron-failures lane to verify delivery, tone, and action layout.",
+  "why_it_matters": "When a real scheduled job breaks, this lane should tell you what happened without dumping messy logs everywhere.",
+  "run_reference": "test-only / no real failure",
+  "check_command": "openclaw cron list",
+  "next_step": "No action needed for this test. Real failures should point to the safest first diagnostic step."
+}

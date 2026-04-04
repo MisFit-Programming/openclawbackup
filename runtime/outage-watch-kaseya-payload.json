@@ -1,0 +1,89 @@
+{
+  "channel": "C0AQVSNKDV2",
+  "text": "MSP outage alert: Kaseya / Datto Workplace U.S. latency incident is active; root cause identified, fix under evaluation.",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Outage Alert"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Vendor:* Kaseya / Datto"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Scope:* Local + Global Relevance"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Priority:* P2"
+        }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Detected:* 2026-04-03 17:13 UTC"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Confidence:* High"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Current Issue*\nOfficial Kaseya status shows active Datto Workplace latency affecting multiple U.S. projects; root cause has been identified and a corrective solution is under evaluation."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Why You Care*\nMSP teams supporting Datto Workplace users may see file access/download slowness, user complaints, and sync/performance tickets across U.S.-hosted projects, including locally managed clients."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Status*\nIdentified \u2014 vendor says root cause found; fix under evaluation; next update expected early next week."
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Impact*\nElevated latency and slow large-file downloads for Datto Workplace users in the U.S.; no data-integrity impact stated."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Response*\n\u2022 Check whether affected clients use Datto Workplace and pause non-urgent large file-transfer expectations or migrations.\n\u2022 Tag inbound file-performance tickets to the vendor incident and monitor status.kaseya.com for the next update before escalating duplicates."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://status.kaseya.com/|Kaseya status> \u2022 <https://statusgator.com/services/kaseya|Secondary corroboration>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "channel": "C09C91KVD88",
-  "text": "MSP outage alert: Microsoft 365 / Exchange Online service degradation affecting mailbox access in some clients.",
+  "text": "MSP outage alert: Kaseya/Datto Workplace elevated latency in the U.S. region; vendor investigating.",
   "blocks": [
     {
       "type": "header",
@@ -14,15 +14,15 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "*Vendor:* Microsoft 365 / Exchange Online"
+          "text": "*Vendor:* Kaseya / Datto Workplace"
         },
         {
           "type": "mrkdwn",
-          "text": "*Detected:* 2026-04-02 19:21 UTC"
+          "text": "*Detected:* 2026-04-01 11:45 EDT / 15:45 UTC"
         },
         {
           "type": "mrkdwn",
-          "text": "*Confidence:* Medium-High"
+          "text": "*Confidence:* High \u2014 vendor status page, active investigation"
         }
       ]
     },
@@ -33,7 +33,7 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Current Issue*\nMicrosoft 365 is showing an active Exchange Online service degradation. Some users may be intermittently unable to access their mailboxes through Outlook mobile apps and the new Outlook for Mac. Separate Microsoft 365 admin/sign-in issues were also reported and appear to have been restored, which raises confidence that this is part of a broader current M365 disruption window."
+        "text": "*Current Issue*\nKaseya reports elevated latency affecting multiple Datto Workplace projects in the U.S. region, with R&D actively investigating."
       }
     },
     {
@@ -41,11 +41,11 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Status*\nActive service degradation"
+          "text": "*Status*\nInvestigating"
         },
         {
           "type": "mrkdwn",
-          "text": "*Impact*\nIntermittent mailbox access failures for affected users; likely helpdesk ticket volume and login/mail triage for MSP-served tenants using Exchange Online clients."
+          "text": "*Impact*\nDelayed file sync and project access for Datto Workplace users in the U.S.; likely ticket volume, user friction, and possible workflow disruption for MSP-served clients."
         }
       ]
     },
@@ -53,7 +53,7 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Response*\n\u2022 Check whether affected users are on Outlook mobile or the new Outlook for Mac, and shift urgent users to Outlook on the web or alternate access paths where possible.\n\u2022 Pause local client remediation unless tenant-specific evidence exists; monitor Microsoft 365 service health and prepare client-facing advisory updates if ticket volume rises."
+        "text": "*Response*\n\u2022 Check Datto Workplace-heavy clients for sync/project access complaints and pause non-urgent escalations until vendor guidance changes.\n\u2022 Advise affected users to avoid risky retries or bulk changes, document impact by client, and monitor Kaseya status for recovery updates."
       }
     },
     {
@@ -61,7 +61,7 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "<https://www.media.hiroshima-u.ac.jp/2026/04/03/m365-service-status/|M365 status aggregation> \u2022 <https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/|Microsoft outage coverage>"
+          "text": "<https://status.kaseya.com/|Kaseya Status> \u2022 <https://status.datto.com/|Datto Status>"
         }
       ]
     }

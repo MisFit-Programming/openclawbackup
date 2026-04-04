@@ -1,0 +1,16 @@
+{
+  "window_label": "Webhook 24h batch",
+  "ticket_count": "53",
+  "company_count": "20",
+  "executive_summary": "Analyzed 53 ticket(s) across 20 company IDs from the current webhook batch with primary focus on repeat patterns, prevention opportunities, and automation candidates. Maintenance was isolated at 5 ticket(s), while the strongest non-maintenance pattern currently points to Email. This report is intentionally weighted toward what should be prevented, standardized, or automated next.",
+  "top_company_signal": "Company 311: 15 ticket(s)",
+  "top_type_signal": "Email: 17",
+  "maintenance_metric": "5 maintenance ticket(s)",
+  "cto_attention_level": "Moderate",
+  "automation_1": "Bundle recurring maintenance notices, maintenance-mode timing, and completion notices into one reusable automation playbook.",
+  "automation_2": "Normalize ticket categorization in the webhook/subworkflow so repeated issue types cluster cleanly for future scoring.",
+  "automation_3": "Enrich each ticket with device/service metadata so repetitive fixes can be ranked for automation more accurately.",
+  "cto_1": "Company 311 crossed the noisy-company threshold with 15 tickets.",
+  "cto_2": "Company 0 crossed the noisy-company threshold with 10 tickets.",
+  "cto_3": "Maintenance volume is 5 ticket(s) and remains isolated from the main reactive rankings."
+}

@@ -1,0 +1,76 @@
+{
+  "to": "channel:C0AQVSLJJKW",
+  "content": "Real test: daily brief lane is live.",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "CTO / MSP Brief"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Date:* 2026-04-03"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Audience:* CTO / MSP Leadership"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Summary*\nTest brief: routing, rendering, and delivery are now aligned so the morning lane can carry one crisp leadership scan instead of mixed operational noise."
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Security*\n\u2022 Security guardrails and recurring review jobs were added to reduce prompt-injection and secret-leak risk.\n\u2022 Gateway and health reporting now route into dedicated operational lanes with failure alerts separated cleanly."
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Platform / Vendor*\n\u2022 Slack routing was reworked so briefing, outage, health, and admin updates land in distinct channels.\n\u2022 Block Kit templates were normalized into a consistent visual family with cleaner hierarchy and spacing."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*MSP Impact*\nLower channel clutter, faster scanning, and cleaner operational separation for daily decisions."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Recommended Action*\n\u2022 Confirm the daily brief lands at the right time for your morning routine.\n\u2022 Keep outages and failures in their dedicated lanes to preserve signal quality.\n\u2022 Expand channel routing only after the core set feels calm and useful."
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "<https://docs.openclaw.ai|OpenClaw docs> \u2022 <https://status.openai.com|Example vendor status> \u2022 <https://slack.com/help/articles/115004071768-What-is-Block-Kit-|Block Kit ref>"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

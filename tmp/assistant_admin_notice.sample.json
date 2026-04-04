@@ -1,0 +1,9 @@
+{
+  "area": "Slack Routing",
+  "changed_at": "2026-04-03 16:28 UTC",
+  "risk_level": "Low",
+  "what_changed": "Moved live briefing, outage, healthcheck, and failure reporting into their dedicated Slack channels with mention-only gating still enforced.",
+  "impact": "Operational traffic is now cleaner and channel-specific, with less cross-post clutter.",
+  "verification": "Manual test messages delivered successfully to each configured channel.",
+  "operator_note": "One more real-content test per lane is the final sanity pass before calling the routing polished."
+}

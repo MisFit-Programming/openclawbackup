@@ -8,6 +8,13 @@
       "type": "context",
       "elements": [
         { "type": "mrkdwn", "text": "*Vendor:* {{vendor}}" },
+        { "type": "mrkdwn", "text": "*Scope:* {{scope}}" },
+        { "type": "mrkdwn", "text": "*Priority:* {{priority}}" }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
         { "type": "mrkdwn", "text": "*Detected:* {{detected_time}}" },
         { "type": "mrkdwn", "text": "*Confidence:* {{confidence}}" }
       ]
@@ -16,6 +23,10 @@
     {
       "type": "section",
       "text": { "type": "mrkdwn", "text": "*Current Issue*\n{{issue_summary}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Why You Care*\n{{why_you_care}}" }
     },
     {
       "type": "section",

@@ -12,15 +12,15 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "*Vendor:* Microsoft 365"
+          "text": "*Vendor:* Kaseya / Datto Workplace"
         },
         {
           "type": "mrkdwn",
-          "text": "*Detected:* 2026-04-02 ~20:30 UTC"
+          "text": "*Detected:* 2026-04-03 13:32 UTC"
         },
         {
           "type": "mrkdwn",
-          "text": "*Confidence:* Medium-High"
+          "text": "*Confidence:* High \u2014 official vendor status; U.S.-region MSP relevance"
         }
       ]
     },
@@ -31,7 +31,7 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Current Issue*\nCredible reports indicate Microsoft 365 Admin Center access issues affecting admins in North America, with intermittent 'service unavailable' behavior and degraded portal usability across multiple tenants."
+        "text": "*Current Issue*\nKaseya says Datto Workplace is seeing elevated latency across multiple projects in the U.S. region. The incident moved from investigating to identified on Apr 3, which makes it a material update and still unresolved."
       }
     },
     {
@@ -39,11 +39,11 @@
       "fields": [
         {
           "type": "mrkdwn",
-          "text": "*Status*\nInvestigating / degradation reported; broad admin-center impact appears credible but scope and recovery are not yet clearly confirmed."
+          "text": "*Status*\nIdentified / unresolved"
         },
         {
           "type": "mrkdwn",
-          "text": "*Impact*\nMSP admin workflows may be delayed for tenant management, user changes, and support actions that depend on the Microsoft 365 admin portal."
+          "text": "*Impact*\nU.S.-hosted Datto Workplace file access, sync, and user workflows may be slow or inconsistent for managed clients and internal MSP operations."
         }
       ]
     },
@@ -51,7 +51,7 @@
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*Response*\n\u2022 Avoid non-urgent tenant changes and use alternate admin paths or retry later if portal actions fail.\n\u2022 Notify service desk and account teams that Microsoft 365 admin operations may be delayed; monitor Microsoft status updates before escalating widely."
+        "text": "*Response*\n\u2022 Warn service desk and impacted clients to expect slowness in Datto Workplace and defer non-urgent large sync or file-move activity.\n\u2022 Track time-sensitive file-sharing workflows through alternate paths where possible and monitor Kaseya status for the next mitigation update."
       }
     },
     {
@@ -59,7 +59,7 @@
       "elements": [
         {
           "type": "mrkdwn",
-          "text": "<https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/|Neowin summary quoting Microsoft 365 Status> \u2022 <https://community.spiceworks.com/t/m365-admin-center-is-having-issues-this-afternoon/1251842|Spiceworks community confirmation>"
+          "text": "<https://status.kaseya.com/|Kaseya status> \u2022 <https://status.kaseya.com/history|Incident history>"
         }
       ]
     }

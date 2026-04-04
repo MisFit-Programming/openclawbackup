@@ -1,0 +1,67 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Outage Alert"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Vendor:* Microsoft 365"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Detected:* 2026-04-03 04:21 UTC"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Confidence:* Medium-High"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Current Issue*\nMicrosoft 365 is reporting an active service degradation affecting Exchange Online mailbox access in some connection methods, with third-party reporting indicating a broader M365 disruption under investigation."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Status*\nActive degradation under investigation / partial outage"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Impact*\nEmail access and related support volume may spike across Microsoft 365 tenants; expect intermittent mailbox connectivity issues and user-facing Outlook/Exchange disruption."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Response*\n\u2022 Check Microsoft 365 admin/service health for tenant-specific advisories and pause nonessential mailbox troubleshooting while platform validation is in progress.\n\u2022 Notify help desk and client-facing teams to expect Outlook/Exchange access complaints, document affected tenants, and steer users to retry rather than making risky local profile changes."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://www.media.hiroshima-u.ac.jp/2026/04/03/m365-service-status/|M365 status mirror> \u2022 <https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/|Neowin report>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "vendor": "AWS",
+  "detected_time": "2026-04-03 12:48 UTC",
+  "confidence": "Medium",
+  "issue_summary": "Credible signals indicate an active or very recent AWS multi-service operational issue. Independent monitoring shows AWS reporting issues, and public user reports mention 500 responses or empty JSON from AWS-hosted APIs.",
+  "status": "Active signals; monitor closely",
+  "impact": "Potential degradation across AWS-hosted apps, APIs, and dependent MSP tooling or customer services.",
+  "response_1": "Check customer-facing AWS workloads, integrations, and automation for elevated errors, latency, or failed jobs before escalating internally.",
+  "response_2": "Pause nonessential changes and watch AWS Health plus your own telemetry; prepare client comms if tenant-facing impact is confirmed.",
+  "source_1": "https://health.aws.amazon.com/health/status?eventID=arn:aws:health:us-east-1::event/MULTIPLE_SERVICES/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE_BA540_514A652BE1A",
+  "source_1_label": "AWS Health Dashboard",
+  "source_2": "https://isdown.app/status/aws",
+  "source_2_label": "IsDown AWS"
+}

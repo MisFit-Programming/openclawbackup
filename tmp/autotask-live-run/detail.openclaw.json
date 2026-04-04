@@ -1,0 +1,82 @@
+{
+  "to": "channel:C0AR5BWR7GR",
+  "content": "Autotask ticket analysis detailed breakdown",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Autotask Detailed Breakdown"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Generated:* 2026-04-03 18:52 UTC"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Company IDs only*"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Top Companies (5+)*\n\u2022 Company 311: 15 ticket(s)\n\u2022 Company 0: 10 ticket(s)\n\u2022 Company 263: 3 ticket(s)\n\u2022 Company 292: 3 ticket(s)"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Top Non-Maintenance Types (5+)*\n\u2022 Email: 17\n\u2022 Server / Updates: 10\n\u2022 Identity / Access: 7\n\u2022 General Support: 6"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Recurring Issue Patterns*\n\u2022 Maintenance events represented 5 ticket(s) and are tracked separately from reactive support.\n\u2022 Email appeared 17 time(s) in the current dataset.\n\u2022 Server / Updates appeared 10 time(s) in the current dataset."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Prevention Opportunities*\n\u2022 Keep planned maintenance separate from reactive support in all daily analytics.\n\u2022 Standardize ticket type tagging upstream to improve clustering quality.\n\u2022 Include affected service or asset in the webhook payload to expose repeat infrastructure pain faster."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Technician / Process Observations*\n\u2022 Webhook response is now live and usable for production analysis.\n\u2022 Company IDs only are preserved, making the report safer to share upward."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Resolved Wins*\n\u2022 Production webhook now returns usable data to the assistant.\n\u2022 Daily scheduled lane and failure routing are in place."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Sample Ticket Appendix*\n\u2022 #28929 / Co 309 / 3rd Thursday - Church of Presentation Server Maintenance\n\u2022 #28930 / Co 314 / 3rd Thursday - Center for Sight Server Maintenance\n\u2022 #28931 / Co 320 / 3rd Thursday - Florsheim Homes"
+          }
+        }
+      ]
+    }
+  }
+}

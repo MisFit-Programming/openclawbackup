@@ -1,0 +1,75 @@
+{
+  "channel": "C0AR5BWR7GR",
+  "text": "Autotask ticket analysis executive summary",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Autotask Ticket Analysis"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Window:* Webhook 24h batch"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Tickets:* 53"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Companies:* 20"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Executive Summary*\nAnalyzed 53 ticket(s) across 20 company IDs from the current webhook batch with primary focus on repeat patterns, prevention opportunities, and automation candidates. Maintenance was isolated at 5 ticket(s), while the strongest non-maintenance pattern currently points to Email. This report is intentionally weighted toward what should be prevented, standardized, or automated next."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Top Company Signal*\nCompany 311: 15 ticket(s)"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Top Non-Maintenance Type*\nEmail: 17"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Maintenance Volume*\n5 maintenance ticket(s)"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*CTO Attention*\nModerate"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Top Automation Opportunities*\n\u2022 Bundle recurring maintenance notices, maintenance-mode timing, and completion notices into one reusable automation playbook.\n\u2022 Normalize ticket categorization in the webhook/subworkflow so repeated issue types cluster cleanly for future scoring.\n\u2022 Enrich each ticket with device/service metadata so repetitive fixes can be ranked for automation more accurately."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Needs CTO Attention*\n\u2022 Company 311 crossed the noisy-company threshold with 15 tickets.\n\u2022 Company 0 crossed the noisy-company threshold with 10 tickets.\n\u2022 Maintenance volume is 5 ticket(s) and remains isolated from the main reactive rankings."
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "name": "Nightly Dev Maintenance Check (Pretty + Watchtower)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "15 4 * * *"
+            }
+          ]
+        }
+      },
+      "id": "1",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 320]
+    },
+    {
+      "parameters": {
+        "resource": "command",
+        "command": "set -e\n\necho \"N8N_HEALTH_START\"\nif curl -fsS http://localhost:5678/healthz >/dev/null 2>&1; then\n  echo \"n8n_health=ok\"\nelse\n  if curl -fsS http://localhost:5678/ >/dev/null 2>&1; then\n    echo \"n8n_health=ok\"\n  else\n    echo \"n8n_health=fail\"\n  fi\nfi\n\necho \"DOCKER_STATUS_START\"\ndocker ps --format '{{.Names}}|{{.Image}}|{{.Status}}'\n\necho \"N8N_IMAGE_START\"\ndocker inspect n8n --format '{{.Config.Image}}|{{.Image}}' 2>/dev/null || true\n\necho \"WATCHTOWER_CONTAINER_START\"\ndocker ps -a --format '{{.Names}}|{{.Image}}|{{.Status}}' | grep '^watchtower|' || true\n\necho \"WATCHTOWER_LOGS_START\"\ndocker logs --since 36h watchtower 2>&1 | tail -n 120 || true\n\necho \"UNATTENDED_START\"\nsystemctl is-active unattended-upgrades || true\n\necho \"REBOOT_START\"\nif [ -f /var/run/reboot-required ]; then\n  echo \"yes\"\nelse\n  echo \"no\"\nfi\n\necho \"UPGRADABLE_START\"\napt list --upgradable 2>/dev/null | tail -n +2 | head -n 25 || true\n\necho \"LOGS_START\"\ndocker logs --since 24h n8n 2>&1 | tail -n 120 || true\n"
+      },
+      "id": "2",
+      "name": "SSH Check Droplet",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [520, 320],
+      "credentials": {
+        "sshPassword": {
+          "id": "REPLACE_ME",
+          "name": "DigitalOcean Droplet SSH"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.stdout || $json.data || $json.response || '';\n\nfunction sectionBetween(text, start, nextMarkers) {\n  const startIndex = text.indexOf(start);\n  if (startIndex === -1) return '';\n  const from = startIndex + start.length;\n  let end = text.length;\n  for (const marker of nextMarkers) {\n    const idx = text.indexOf(marker, from);\n    if (idx !== -1 && idx < end) end = idx;\n  }\n  return text.slice(from, end).trim();\n}\n\nconst markers = [\n  'N8N_HEALTH_START',\n  'DOCKER_STATUS_START',\n  'N8N_IMAGE_START',\n  'WATCHTOWER_CONTAINER_START',\n  'WATCHTOWER_LOGS_START',\n  'UNATTENDED_START',\n  'REBOOT_START',\n  'UPGRADABLE_START',\n  'LOGS_START'\n];\n\nconst n8nHealthSection = sectionBetween(raw, 'N8N_HEALTH_START', markers);\nconst dockerSection = sectionBetween(raw, 'DOCKER_STATUS_START', markers);\nconst n8nImageSection = sectionBetween(raw, 'N8N_IMAGE_START', markers);\nconst watchtowerContainerSection = sectionBetween(raw, 'WATCHTOWER_CONTAINER_START', markers);\nconst watchtowerLogsSection = sectionBetween(raw, 'WATCHTOWER_LOGS_START', markers);\nconst unattendedSection = sectionBetween(raw, 'UNATTENDED_START', markers);\nconst rebootSection = sectionBetween(raw, 'REBOOT_START', markers);\nconst upgradableSection = sectionBetween(raw, 'UPGRADABLE_START', markers);\nconst logsSection = sectionBetween(raw, 'LOGS_START', markers);\n\nconst dockerLines = dockerSection.split('\\n').map(s => s.trim()).filter(Boolean);\nconst n8nContainer = dockerLines.find(line => line.startsWith('n8n|')) || '';\nconst n8nRunning = n8nContainer.length > 0;\nconst n8nHealthy = n8nHealthSection.includes('n8n_health=ok');\nconst unattendedActive = unattendedSection.includes('active');\nconst rebootRequired = rebootSection.split('\\n')[0]?.trim() === 'yes';\nconst upgradablePackages = upgradableSection ? upgradableSection.split('\\n').map(s => s.trim()).filter(Boolean) : [];\nconst upgradableCount = upgradablePackages.length;\n\nconst watchtowerContainer = watchtowerContainerSection.split('\\n').map(s => s.trim()).filter(Boolean)[0] || '';\nconst watchtowerConfigured = watchtowerContainer.length > 0;\nconst watchtowerLogLines = watchtowerLogsSection.split('\\n').map(s => s.trim()).filter(Boolean);\nconst recentWatchtowerHighlights = watchtowerLogLines.filter(line => /Found new|Pulling|Creating|Stopping|Removing|Restarting|Updated|Session done|No new images|Checking all containers/i.test(line)).slice(-12);\nconst watchtowerSawN8n = watchtowerLogLines.some(line => /n8n/i.test(line));\nconst watchtowerUpdatedN8n = watchtowerLogLines.some(line => /(Updated|Pulling|Creating|Restarting).*(n8n)|(n8n).*(Updated|Pulling|Creating|Restarting)/i.test(line));\n\nconst suspiciousPatterns = [\n  /error/i,\n  /fatal/i,\n  /panic/i,\n  /econnrefused/i,\n  /database.*failed/i,\n  /permission denied/i,\n  /cannot find module/i,\n  /migration failed/i,\n  /exited with code/i\n];\n\nconst suspiciousLogLines = logsSection\n  .split('\\n')\n  .map(line => line.trim())\n  .filter(Boolean)\n  .filter(line => suspiciousPatterns.some(rx => rx.test(line)))\n  .slice(0, 12);\n\nconst findings = [];\n\nif (!n8nRunning) {\n  findings.push({\n    issue: 'n8n container is not running',\n    why: 'Docker did not report a running n8n container.',\n    check: 'docker ps -a | grep n8n',\n    fix: 'docker start n8n'\n  });\n}\n\nif (n8nRunning && !n8nHealthy) {\n  findings.push({\n    issue: 'n8n health check failed',\n    why: 'The container exists but localhost did not respond cleanly on the n8n endpoint.',\n    check: 'docker logs --tail 100 n8n && curl -I http://localhost:5678/',\n    fix: 'docker restart n8n'\n  });\n}\n\nif (!watchtowerConfigured) {\n  findings.push({\n    issue: 'watchtower container not found',\n    why: 'No watchtower container was detected, so automatic n8n image refresh may not be happening.',\n    check: 'docker ps -a | grep watchtower',\n    fix: 'docker start watchtower'\n  });\n} else if (!watchtowerSawN8n) {\n  findings.push({\n    issue: 'watchtower has no recent n8n activity',\n    why: 'Recent watchtower logs did not clearly mention n8n.',\n    check: 'docker logs --since 36h watchtower | tail -n 120',\n    fix: 'docker restart watchtower'\n  });\n}\n\nif (!unattendedActive) {\n  findings.push({\n    issue: 'unattended-upgrades is inactive',\n    why: 'Linux security updates may not be applying automatically.',\n    check: 'systemctl status unattended-upgrades',\n    fix: 'sudo systemctl enable --now unattended-upgrades'\n  });\n}\n\nif (rebootRequired) {\n  findings.push({\n    issue: 'host reboot required',\n    why: 'Ubuntu marked the host for reboot after package updates.',\n    check: 'cat /var/run/reboot-required',\n    fix: 'sudo reboot'\n  });\n}\n\nif (upgradableCount > 0) {\n  findings.push({\n    issue: 'packages are pending upgrade',\n    why: `${upgradableCount} package entries were returned by apt list --upgradable.`,\n    check: 'apt list --upgradable',\n    fix: 'sudo apt update && sudo apt upgrade -y'\n  });\n}\n\nif (suspiciousLogLines.length) {\n  findings.push({\n    issue: 'suspicious n8n log lines detected',\n    why: 'Recent n8n logs matched error-like patterns.',\n    check: 'docker logs --tail 120 n8n',\n    fix: 'docker restart n8n'\n  });\n}\n\nconst overallHealthy = findings.length === 0;\nconst overallStatus = overallHealthy ? 'Healthy' : 'Needs Attention';\nconst statusEmoji = overallHealthy ? '✅' : '🚨';\nconst primaryFinding = findings[0] || null;\nconst watchtowerStatus = !watchtowerConfigured\n  ? 'Not Found'\n  : watchtowerUpdatedN8n\n    ? 'Updated n8n recently'\n    : watchtowerSawN8n\n      ? 'Checked n8n, no clear update event'\n      : 'Running, but no n8n activity seen';\n\nconst blocks = [\n  {\n    type: 'header',\n    text: { type: 'plain_text', text: `${statusEmoji} Dev Maintenance Check` }\n  },\n  {\n    type: 'context',\n    elements: [\n      { type: 'mrkdwn', text: `*Checked:* ${new Date().toISOString()}` },\n      { type: 'mrkdwn', text: `*Status:* ${overallStatus}` }\n    ]\n  },\n  { type: 'divider' },\n  {\n    type: 'section',\n    fields: [\n      { type: 'mrkdwn', text: `*n8n Container*\\n${n8nRunning ? 'Running' : 'Missing'}` },\n      { type: 'mrkdwn', text: `*n8n Health*\\n${n8nHealthy ? 'Passed' : 'Failed'}` },\n      { type: 'mrkdwn', text: `*Watchtower*\\n${watchtowerStatus}` },\n      { type: 'mrkdwn', text: `*Unattended Upgrades*\\n${unattendedActive ? 'Active' : 'Inactive / Unknown'}` },\n      { type: 'mrkdwn', text: `*Reboot Required*\\n${rebootRequired ? 'Yes' : 'No'}` },\n      { type: 'mrkdwn', text: `*Upgradable Sample*\\n${upgradableCount}` }\n    ]\n  }\n];\n\nif (primaryFinding) {\n  blocks.push({\n    type: 'section',\n    text: {\n      type: 'mrkdwn',\n      text: `*Needs Attention*\\n*Issue:* ${primaryFinding.issue}\\n*Why:* ${primaryFinding.why}`\n    }\n  });\n  blocks.push({\n    type: 'section',\n    fields: [\n      { type: 'mrkdwn', text: `*Check Command*\\n\\`${primaryFinding.check}\\`` },\n      { type: 'mrkdwn', text: `*Fix Command*\\n\\`${primaryFinding.fix}\\`` }\n    ]\n  });\n}\n\nif (findings.length > 1) {\n  blocks.push({\n    type: 'section',\n    text: {\n      type: 'mrkdwn',\n      text: `*Other Findings*\\n• ${findings.slice(1).map(f => f.issue).join('\\n• ')}`\n    }\n  });\n}\n\nif (n8nContainer) {\n  blocks.push({\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Container*\\n${n8nContainer}` }\n  });\n}\n\nif (n8nImageSection) {\n  blocks.push({\n    type: 'section',\n    text: { type: 'mrkdwn', text: `*Image Info*\\n${n8nImageSection.split('\\n')[0]}` }\n  });\n}\n\nif (recentWatchtowerHighlights.length) {\n  blocks.push({\n    type: 'section',\n    text: {\n      type: 'mrkdwn',\n      text: `*Recent Watchtower Activity*\\n• ${recentWatchtowerHighlights.join('\\n• ')}`\n    }\n  });\n}\n\nif (upgradablePackages.length) {\n  blocks.push({\n    type: 'section',\n    text: {\n      type: 'mrkdwn',\n      text: `*Upgradable Package Sample*\\n• ${upgradablePackages.slice(0, 8).join('\\n• ')}`\n    }\n  });\n}\n\nif (suspiciousLogLines.length) {\n  blocks.push({\n    type: 'section',\n    text: {\n      type: 'mrkdwn',\n      text: `*Suspicious n8n Log Lines*\\n\\`\\`\\`\\n${suspiciousLogLines.join('\\n').slice(0, 2800)}\\n\\`\\`\\``\n    }\n  });\n} else {\n  blocks.push({\n    type: 'section',\n    text: { type: 'mrkdwn', text: '*n8n Logs*\\nNo obvious error patterns in the recent tail.' }\n  });\n}\n\nblocks.push({\n  type: 'context',\n  elements: [\n    { type: 'mrkdwn', text: overallHealthy ? 'Quiet little machine. No obvious drama.' : 'Something looks off. The first fix command is ready for you.' }\n  ]\n});\n\nreturn [{\n  json: {\n    overallHealthy,\n    overallStatus,\n    n8nRunning,\n    n8nHealthy,\n    unattendedActive,\n    rebootRequired,\n    upgradableCount,\n    upgradablePackages,\n    n8nContainer,\n    n8nImageInfo: n8nImageSection.split('\\n')[0] || '',\n    watchtowerConfigured,\n    watchtowerSawN8n,\n    watchtowerUpdatedN8n,\n    recentWatchtowerHighlights,\n    suspiciousLogLines,\n    findings,\n    primaryFinding,\n    checkedAt: new Date().toISOString(),\n    slackText: overallHealthy\n      ? `${statusEmoji} Dev maintenance check: Healthy. n8n healthy, watchtower ${watchtowerConfigured ? 'present' : 'missing'}, reboot ${rebootRequired ? 'required' : 'not required'}.`\n      : `${statusEmoji} Dev maintenance check: ${primaryFinding.issue}. Fix: ${primaryFinding.fix}`,\n    slackBlocks: blocks\n  }\n}];"
+      },
+      "id": "3",
+      "name": "Parse + Build Card",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [800, 320]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": "YOUR_SLACK_CHANNEL_ID",
+        "text": "={{ $json.slackText }}",
+        "otherOptions": {
+          "blocksUi": {
+            "blockValues": [
+              {
+                "blocks": "={{ JSON.stringify($json.slackBlocks) }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "4",
+      "name": "Send Slack Block Kit",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [1080, 320],
+      "credentials": {
+        "slackApi": {
+          "id": "REPLACE_ME",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "SSH Check Droplet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SSH Check Droplet": {
+      "main": [
+        [
+          {
+            "node": "Parse + Build Card",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse + Build Card": {
+      "main": [
+        [
+          {
+            "node": "Send Slack Block Kit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "id": "nightly-dev-maintenance-blockkit",
+  "tags": []
+}

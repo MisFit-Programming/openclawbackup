@@ -1,0 +1,169 @@
+{
+  "profile_name": "lodi-msp-local-global",
+  "based_in": {
+    "city": "Lodi",
+    "state": "CA",
+    "country": "US",
+    "region_tags": [
+      "lodi",
+      "stockton",
+      "galt",
+      "elk grove",
+      "manteca",
+      "tracy",
+      "modesto",
+      "sacramento",
+      "central valley",
+      "san joaquin",
+      "northern california",
+      "california"
+    ]
+  },
+  "alert_scope": {
+    "include_local": true,
+    "include_global": true,
+    "local_match_rules": [
+      "incident mentions Lodi or nearby Central Valley / San Joaquin geography",
+      "incident source marks affected area as California, Northern California, Central Valley, Sacramento region, Stockton area, or nearby service footprint",
+      "incident is infrastructure-related and plausibly impacts local managed clients"
+    ],
+    "global_match_rules": [
+      "vendor status or multiple credible sources indicate global, multi-region, widespread, or broad North America impact",
+      "major shared platform outage likely to create downstream client tickets even outside immediate geography",
+      "core identity, mail, cloud, DNS, CDN, telecom, or business-critical SaaS degradation"
+    ]
+  },
+  "dedupe": {
+    "fingerprint_fields": [
+      "vendor",
+      "service",
+      "incident_key",
+      "scope",
+      "status_bucket"
+    ],
+    "status_buckets": [
+      "investigating",
+      "identified",
+      "monitoring",
+      "resolved"
+    ],
+    "realert_only_when": [
+      "status bucket changes",
+      "severity increases",
+      "scope changes from local to global or global into local relevance",
+      "workaround becomes available",
+      "resolved notice published"
+    ],
+    "suppress_exact_duplicates_within_minutes": 180
+  },
+  "priority": {
+    "p1": [
+      "local power or internet outage affecting service footprint",
+      "widespread Microsoft 365, Google Workspace, Azure, AWS, Cloudflare, or identity outage",
+      "major PSA/RMM/backup/security outage with immediate client operations impact"
+    ],
+    "p2": [
+      "significant degradation in major SaaS used by property management or CPA clients",
+      "regional carrier or ISP issue with credible business impact",
+      "partial outage with broad admin or user workflow disruption"
+    ],
+    "p3": [
+      "advisories, partial degradation, monitoring state, or narrow-scope vendor issue worth awareness but not urgent escalation"
+    ]
+  },
+  "categories": {
+    "power_utility": [
+      "PG&E",
+      "SMUD",
+      "local utility outage maps"
+    ],
+    "internet_telecom": [
+      "Comcast Business",
+      "Spectrum",
+      "AT&T",
+      "Verizon",
+      "T-Mobile",
+      "Lumen",
+      "Cogent",
+      "Zayo",
+      "Akamai",
+      "Cloudflare DNS",
+      "Google DNS"
+    ],
+    "core_cloud_identity": [
+      "Microsoft 365",
+      "Exchange Online",
+      "SharePoint Online",
+      "Teams",
+      "Azure",
+      "Entra ID",
+      "Intune",
+      "Google Workspace",
+      "Gmail",
+      "Google Drive",
+      "Google Meet",
+      "AWS",
+      "GCP",
+      "Cloudflare",
+      "Okta",
+      "Duo"
+    ],
+    "msp_core_stack": [
+      "ConnectWise",
+      "Kaseya",
+      "Datto RMM",
+      "Datto BCDR",
+      "N-able",
+      "NinjaOne",
+      "Axcient",
+      "Pax8",
+      "Huntress",
+      "SentinelOne",
+      "Microsoft Defender",
+      "Sophos",
+      "Bitdefender",
+      "Proofpoint",
+      "Barracuda",
+      "Mimecast",
+      "Zoom",
+      "RingCentral",
+      "8x8"
+    ],
+    "property_management": [
+      "AppFolio",
+      "Buildium",
+      "Yardi",
+      "Rent Manager",
+      "Propertyware",
+      "RealPage",
+      "Entrata",
+      "tenant portal",
+      "rent payment",
+      "screening",
+      "resident portal"
+    ],
+    "cpa_tax_accounting": [
+      "QuickBooks Online",
+      "Intuit",
+      "Lacerte",
+      "ProSeries",
+      "Drake Tax",
+      "UltraTax",
+      "Thomson Reuters",
+      "CCH",
+      "Wolters Kluwer",
+      "Canopy",
+      "Karbon",
+      "e-file",
+      "tax portal",
+      "practice management"
+    ]
+  },
+  "alert_policy": {
+    "send_initial": true,
+    "send_material_update": true,
+    "send_resolution": true,
+    "avoid_repeat_every_poll": true,
+    "prefer_vendor_status_plus_one_secondary_source": true
+  }
+}

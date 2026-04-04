@@ -1,0 +1,60 @@
+{
+  "to": "channel:C0AQARFMWMV",
+  "content": "OpenClaw update status: current on stable (pnpm), no action needed. Next step: keep monitoring on the normal healthcheck cadence.",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Update"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*System:* OpenClaw"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Date:* 2026-04-03 18:05 UTC"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*What Changed*\n`openclaw update status` reports the stable pnpm install is *up to date* at npm latest `2026.4.2`."
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Status*\n:white_check_mark: Current"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Impact*\nNo immediate action needed"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Next Step*\nKeep monitoring on the normal healthcheck cadence and rerun `openclaw update status` after the next release window or if update behavior changes."
+          }
+        }
+      ]
+    }
+  }
+}

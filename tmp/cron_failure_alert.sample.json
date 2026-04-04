@@ -1,0 +1,10 @@
+{
+  "job_name": "watch:standard-msp-outages",
+  "detected_time": "2026-04-03 16:28 UTC",
+  "severity": "High",
+  "failure_summary": "The outage watch job failed to complete a polling cycle after repeated source parsing errors.",
+  "why_it_matters": "You could miss a real local or global incident if the watch stays unhealthy.",
+  "run_reference": "manual:test-run-001",
+  "check_command": "openclaw cron runs --id 55563115-994e-4a6e-8014-5dc0e62f433b --limit 5",
+  "next_step": "Review the latest run output, confirm source reachability, and rerun once after correcting the failing fetch/parsing path."
+}

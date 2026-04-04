@@ -1,0 +1,17 @@
+{
+  "vendor": "Kaseya / Datto",
+  "scope": "Local + Global Relevance",
+  "priority": "P2",
+  "confidence": "High",
+  "detected_time": "2026-04-03 17:13 UTC",
+  "issue_summary": "Official Kaseya status shows active Datto Workplace latency affecting multiple U.S. projects; root cause has been identified and a corrective solution is under evaluation.",
+  "why_you_care": "MSP teams supporting Datto Workplace users may see file access/download slowness, user complaints, and sync/performance tickets across U.S.-hosted projects, including locally managed clients.",
+  "impact": "Elevated latency and slow large-file downloads for Datto Workplace users in the U.S.; no data-integrity impact stated.",
+  "status": "Identified — vendor says root cause found; fix under evaluation; next update expected early next week.",
+  "response_1": "Check whether affected clients use Datto Workplace and pause non-urgent large file-transfer expectations or migrations.",
+  "response_2": "Tag inbound file-performance tickets to the vendor incident and monitor status.kaseya.com for the next update before escalating duplicates.",
+  "source_1": "https://status.kaseya.com/",
+  "source_1_label": "Kaseya status",
+  "source_2": "https://statusgator.com/services/kaseya",
+  "source_2_label": "Secondary corroboration"
+}

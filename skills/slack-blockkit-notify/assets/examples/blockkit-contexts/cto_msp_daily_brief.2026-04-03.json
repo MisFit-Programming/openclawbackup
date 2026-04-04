@@ -1,0 +1,18 @@
+{
+  "date": "Fri Apr 3, 2026",
+  "executive_summary": "Active exploitation remains the top risk today, with fresh browser and enterprise software issues competing with ongoing Microsoft and Google admin changes. For MSPs, the operational priority is rapid patch validation, exposure review, and making sure identity and collaboration policy changes are staged before they surprise clients.",
+  "security_1": "CISA added five more flaws to KEV on Mar 20, including Apple, Craft CMS, and Laravel Livewire issues—good reminder to keep internet-facing app and CMS patch SLAs tight.",
+  "security_2": "Chrome patched another in-the-wild zero-day (CVE-2026-5281); push browser updates fast across managed endpoints, especially admin and finance users.",
+  "tech_1": "Microsoft Entra has a July 1 enforcement change ahead: Entra Connect will stop modifying OnPremisesObjectIdentifier after it is already mapped to a synced user object—hybrid identity workflows should be reviewed now.",
+  "tech_2": "Google Workspace added admin control for continuous Google Meet chat, giving MSPs a cleaner way to manage retention, compliance, and host override behavior by OU/group/user.",
+  "msp_impact": "Expect client questions around endpoint/browser patch urgency, hybrid identity edge cases, and chat retention/compliance settings. This is a good day to verify firewall/VPN, CMS, and collaboration-policy hygiene rather than waiting for the next client incident to force the review.",
+  "action_1": "Force or verify Chrome/Chromium-family updates in RMM for high-risk endpoints and privileged users.",
+  "action_2": "Review hybrid Entra Connect environments for any dependency on OnPremisesObjectIdentifier changes before Microsoft’s July enforcement window.",
+  "action_3": "Audit exposed apps and management planes, then queue KEV, CMS/framework, and firewall/client-management patches into this week’s maintenance plan.",
+  "link_1": "https://www.cisa.gov/news-events/alerts/2026/03/20/cisa-adds-five-known-exploited-vulnerabilities-catalog",
+  "link_1_label": "CISA KEV update",
+  "link_2": "https://learn.microsoft.com/en-us/entra/fundamentals/whats-new",
+  "link_2_label": "Microsoft Entra changes",
+  "link_3": "https://workspaceupdates.googleblog.com/2026/03/control-continuous-meeting-chat-for-your-organization.html",
+  "link_3_label": "Google Workspace admin control"
+}

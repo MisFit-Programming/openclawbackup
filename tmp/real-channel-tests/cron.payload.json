@@ -1,0 +1,67 @@
+{
+  "channel": "C0AQNSPH6FP",
+  "text": "Real test: cron-failures lane is live.",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Cron Failure"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Job:* routing:lane-verification"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*When:* 2026-04-03 16:30 UTC"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Severity:* Test / Medium"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Failure Summary*\nControlled test card for the cron-failures lane to verify delivery, tone, and action layout."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Why It Matters*\nWhen a real scheduled job breaks, this lane should tell you what happened without dumping messy logs everywhere."
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Run ID / Signal*\ntest-only / no real failure"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Check Command*\n`openclaw cron list`"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Next Step*\nNo action needed for this test. Real failures should point to the safest first diagnostic step."
+      }
+    }
+  ]
+}

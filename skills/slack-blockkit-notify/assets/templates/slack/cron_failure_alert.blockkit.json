@@ -1,0 +1,36 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Cron Failure" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Job:* {{job_name}}" },
+        { "type": "mrkdwn", "text": "*When:* {{detected_time}}" },
+        { "type": "mrkdwn", "text": "*Severity:* {{severity}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Failure Summary*\n{{failure_summary}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Why It Matters*\n{{why_it_matters}}" },
+        { "type": "mrkdwn", "text": "*Run ID / Signal*\n{{run_reference}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Check Command*\n`{{check_command}}`" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Next Step*\n{{next_step}}" }
+    }
+  ]
+}

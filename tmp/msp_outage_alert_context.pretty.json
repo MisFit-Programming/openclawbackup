@@ -1,0 +1,17 @@
+{
+  "vendor": "Microsoft 365",
+  "scope": "Global",
+  "priority": "P1",
+  "confidence": "High — official vendor status page plus corroboration",
+  "detected_time": "2026-04-03 15:35 UTC",
+  "issue_summary": "Exchange Online mailbox access is degraded for a broad set of tenants while Microsoft investigates.",
+  "why_you_care": "Clients may report mail access issues and your helpdesk can get ahead of the noise with one clean explanation.",
+  "impact": "Likely user-facing disruption with cross-client ticket volume potential.",
+  "status": "Investigating / active degradation",
+  "response_1": "Check the official incident page before troubleshooting individual mailboxes so you do not waste technician cycles on a platform-side issue.",
+  "response_2": "Notify impacted clients with a brief status note and pause non-urgent mailbox remediation until vendor guidance changes.",
+  "source_1": "https://status.office.com",
+  "source_1_label": "Microsoft status",
+  "source_2": "https://example.com/outage-report",
+  "source_2_label": "Secondary source"
+}

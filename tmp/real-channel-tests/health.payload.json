@@ -1,0 +1,64 @@
+{
+  "channel": "C0AQARFMWMV",
+  "text": "Real test: healthcheck lane is live.",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Health Report"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Host:* openclaw host"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Date:* 2026-04-03"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Overall*\nHealthy"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Updates*\nCurrent / no urgent update required"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Counts*\n0 / 1 / 3"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Breakage Risk*\nLow"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Top Findings*\n\u2022 Slack routing and channel allowlist changes are live after gateway reload.\n\u2022 Recurring security review jobs are scheduled and failure-routed cleanly.\n\u2022 Template family render checks passed for the core channel lanes."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Next Step*\nRun one real-content pass per lane and leave the rest quiet unless a material event occurs."
+      }
+    }
+  ]
+}

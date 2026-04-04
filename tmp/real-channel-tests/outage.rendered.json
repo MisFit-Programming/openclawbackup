@@ -1,0 +1,87 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Outage Alert"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Vendor:* Test Incident"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Scope:* Global"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Priority:* Test / P3"
+        }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Detected:* 2026-04-03 16:30 UTC"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Confidence:* High \u2014 intentional routing test"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Current Issue*\nThis is a controlled outage-card test to validate channel routing, template quality, and lane-specific formatting."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Why You Care*\nYou want to know the outage lane is visually sharp and functionally ready before a real vendor incident lands there."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Status*\nTest only / no real outage"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Impact*\nNo live impact. Delivery and readability verification only."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Response*\n\u2022 No action needed beyond confirming the card looks right in the lane.\n\u2022 If the format feels too heavy or too soft, adjust the template before the next real incident."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://docs.openclaw.ai|OpenClaw docs> \u2022 <https://slack.com/help/articles/115004071768-What-is-Block-Kit-|Block Kit ref>"
+        }
+      ]
+    }
+  ]
+}

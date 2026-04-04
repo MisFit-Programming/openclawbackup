@@ -1,0 +1,17 @@
+{
+  "vendor": "Test Incident",
+  "scope": "Global",
+  "priority": "Test / P3",
+  "confidence": "High \u2014 intentional routing test",
+  "detected_time": "2026-04-03 16:30 UTC",
+  "issue_summary": "This is a controlled outage-card test to validate channel routing, template quality, and lane-specific formatting.",
+  "why_you_care": "You want to know the outage lane is visually sharp and functionally ready before a real vendor incident lands there.",
+  "status": "Test only / no real outage",
+  "impact": "No live impact. Delivery and readability verification only.",
+  "response_1": "No action needed beyond confirming the card looks right in the lane.",
+  "response_2": "If the format feels too heavy or too soft, adjust the template before the next real incident.",
+  "source_1": "https://docs.openclaw.ai",
+  "source_1_label": "OpenClaw docs",
+  "source_2": "https://slack.com/help/articles/115004071768-What-is-Block-Kit-",
+  "source_2_label": "Block Kit ref"
+}

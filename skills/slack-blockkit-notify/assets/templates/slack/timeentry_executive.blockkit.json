@@ -1,0 +1,45 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Time Entry Analysis" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Window:* {{window_label}}" },
+        { "type": "mrkdwn", "text": "*Entries:* {{entry_count}}" },
+        { "type": "mrkdwn", "text": "*Resources:* {{resource_count}}" }
+      ]
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Maintenance:* {{maintenance_metric}}" },
+        { "type": "mrkdwn", "text": "*Tone:* Blunt manager view" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Executive Read*\n{{executive_summary}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Training Signal*\n{{training_signal}}" },
+        { "type": "mrkdwn", "text": "*Automation Signal*\n{{automation_signal}}" },
+        { "type": "mrkdwn", "text": "*Time Waste Signal*\n{{waste_signal}}" },
+        { "type": "mrkdwn", "text": "*Hygiene Signal*\n{{hygiene_signal}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Evidence Snapshot*\n`{{evidence_excerpt}}`" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Manager Attention*\n• {{manager_1}}\n• {{manager_2}}\n• {{manager_3}}" }
+    }
+  ]
+}

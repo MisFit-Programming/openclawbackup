@@ -1,0 +1,67 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Outage Alert"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Vendor:* AWS"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Detected:* 2026-04-03 12:48 UTC"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Confidence:* Medium"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Current Issue*\nCredible signals indicate an active or very recent AWS multi-service operational issue. Independent monitoring shows AWS reporting issues, and public user reports mention 500 responses or empty JSON from AWS-hosted APIs."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Status*\nActive signals; monitor closely"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Impact*\nPotential degradation across AWS-hosted apps, APIs, and dependent MSP tooling or customer services."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Response*\n\u2022 Check customer-facing AWS workloads, integrations, and automation for elevated errors, latency, or failed jobs before escalating internally.\n\u2022 Pause nonessential changes and watch AWS Health plus your own telemetry; prepare client comms if tenant-facing impact is confirmed."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://health.aws.amazon.com/health/status?eventID=arn:aws:health:us-east-1::event/MULTIPLE_SERVICES/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE_BA540_514A652BE1A|AWS Health Dashboard> \u2022 <https://isdown.app/status/aws|IsDown AWS>"
+        }
+      ]
+    }
+  ]
+}

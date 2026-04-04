@@ -1,3 +1,6 @@
 Cron jobs migrated to native Slack Block Kit sender path on 2026-04-03.
-- appupdates / C0AQ69U1YG7: internal updates, security, health
-- C09C91KVD88: CTO/MSP brief, outages, alerts
+- healthcheck / C0AQARFMWMV: internal updates, security, health
+- daily-brief / C0AQVSLJJKW: CTO/MSP brief
+- outages / C0AQVSNKDV2: outage alerts
+- cron-failures / C0AQNSPH6FP: job failure notifications
+- assistant-admin / C0AQARJ005V: assistant config/admin chatter

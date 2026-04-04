@@ -1,0 +1,68 @@
+{
+  "to": "channel:C0AQARFMWMV",
+  "content": "OpenClaw health report: 0 critical, 3 warnings, 1 info; updates current; next step is fixing ineffective denyCommands entries.",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Health Report"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Host:* openclaw312onubuntu-s-2vcpu-4gb-amd-sfo3-01"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Date:* 2026-04-03 18:00 UTC"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Overall*\nAttention needed, not urgent"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Updates*\nStable channel; pnpm install is up to date (app 2026.4.2)"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Counts*\n0 / 3 / 1"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Breakage Risk*\nLow to medium"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Top Findings*\n\u2022 OpenClaw UI is loopback-only, but trusted proxies are unset if a reverse proxy is added later\n\u2022 gateway.nodes.denyCommands contains ineffective command names and should be corrected first\n\u2022 SSH listens on 0.0.0.0/[::]:22; OpenClaw web ports stay on 127.0.0.1 while mDNS advertises on UDP 5353"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Next Step*\nCorrect ineffective denyCommands entries, then review whether shared Slack access should keep runtime/process tools unsandboxed"
+          }
+        }
+      ]
+    }
+  }
+}

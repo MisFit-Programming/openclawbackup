@@ -1,0 +1,75 @@
+{
+  "to": "channel:C0AQWG1UWUC",
+  "content": "Time entry analysis detailed breakdown",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Time Entry Detailed Breakdown"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Generated:* 2026-04-03 18:38 UTC"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Resource IDs only*"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Training Needs*\n\u2022 Resource 29682913 needs tighter note quality and clearer action/outcome detail.\n`updated the quote to include a line item for labor sent the approved quote to the client`\n\u2022 Resource 29682911 needs tighter note quality and clearer action/outcome detail.\n`left voicemail and email for Joelle and Aaron`\n\u2022 Resource 29682903 needs tighter note quality and clearer action/outcome detail.\n`Review to assign: -Sent email on recommendation -Closing ticket.`"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Automation Opportunities*\n\u2022 No dominant automation signal yet from the current batch.\n`No excerpt needed.`\n\u2022 \u2014\n`\u2014`\n\u2022 \u2014\n`\u2014`"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Time Waste / Inefficiency*\n\u2022 Resource 29682913 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`updated the quote to include a line item for labor sent the approved quote to the client`\n\u2022 Resource 29682911 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`left voicemail and email for Joelle and Aaron`\n\u2022 Resource 29682903 is showing fragmented low-duration entries that suggest interrupt-driven work or inefficient task slicing.\n`Review to assign: -Sent email on recommendation -Closing ticket.`"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Hygiene / Documentation Gaps*\n\u2022 Resource 29682913 is leaving notes that are too thin to reuse as runbook evidence.\n`updated the quote to include a line item for labor sent the approved quote to the client`\n\u2022 Resource 29682911 is leaving notes that are too thin to reuse as runbook evidence.\n`left voicemail and email for Joelle and Aaron`\n\u2022 Resource 29682903 is leaving notes that are too thin to reuse as runbook evidence.\n`Review to assign: -Sent email on recommendation -Closing ticket.`"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Resource Observations*\n\u2022 Resource 29682903: 30 entries / 7.30h\n\u2022 Resource 29682911: 24 entries / 4.67h\n\u2022 Resource 29682889: 15 entries / 10.50h"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Sample Appendix*\n\u2022 Entry 21636 / Res 29682913 / Ticket 27347 / 0.08h / updated the quote to include a line item for labor sent the approved quote to the client\n\u2022 Entry 21637 / Res 29682911 / Ticket 28914 / 0.05h / left voicemail and email for Joelle and Aaron\n\u2022 Entry 21640 / Res 29682903 / Ticket 28918 / 0.05h / Review to assign: -Sent email on recommendation -Closing ticket."
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Autotask Ticket Analysis" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Window:* {{window_label}}" },
+        { "type": "mrkdwn", "text": "*Tickets:* {{ticket_count}}" },
+        { "type": "mrkdwn", "text": "*Companies:* {{company_count}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Executive Summary*\n{{executive_summary}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Top Company Signal*\n{{top_company_signal}}" },
+        { "type": "mrkdwn", "text": "*Top Non-Maintenance Type*\n{{top_type_signal}}" },
+        { "type": "mrkdwn", "text": "*Maintenance Volume*\n{{maintenance_metric}}" },
+        { "type": "mrkdwn", "text": "*CTO Attention*\n{{cto_attention_level}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Top Automation Opportunities*\n• {{automation_1}}\n• {{automation_2}}\n• {{automation_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Needs CTO Attention*\n• {{cto_1}}\n• {{cto_2}}\n• {{cto_3}}" }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "to": "channel:C09C91KVD88",
+  "content": "MSP outage alert: Microsoft 365 / Exchange Online service degradation affecting mailbox access",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Outage Alert"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Vendor:* Microsoft 365 / Exchange Online"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Detected:* 2026-04-03 04:21 UTC"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Confidence:* Medium"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Current Issue*\nUsers may be intermittently unable to access Exchange Online mailboxes through some connection methods. Microsoft 365 status mirrors still show this as an active service degradation."
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Status*\nService degradation ongoing"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Impact*\nEmail access disruption for some tenants and support volume risk for MSP help desks; may affect Outlook/OWA connectivity depending on connection path."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Response*\n\u2022 Check affected tenants for mailbox access failures and validate alternate access paths before escalating user-impact tickets.\n\u2022 Pause broad client troubleshooting changes; monitor Microsoft 365 admin/service health updates and capture tenant-specific error examples."
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "<https://www.media.hiroshima-u.ac.jp/2026/04/03/m365-service-status/|M365 status mirror> \u2022 <https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/|Neowin coverage>"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "to": "channel:C0AQARJ005V",
+  "content": "Real test: assistant admin lane is live.",
+  "channelData": {
+    "slack": {
+      "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "Assistant Admin Notice"
+          }
+        },
+        {
+          "type": "context",
+          "elements": [
+            {
+              "type": "mrkdwn",
+              "text": "*Area:* Slack Routing"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Changed:* 2026-04-03 16:30 UTC"
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Risk:* Low"
+            }
+          ]
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*What Changed*\nThe assistant lane map is now separated into briefing, outage, health, failure, and admin channels with mention-only behavior still enforced."
+          }
+        },
+        {
+          "type": "section",
+          "fields": [
+            {
+              "type": "mrkdwn",
+              "text": "*Impact*\nOperational chatter is cleaner and easier to scan."
+            },
+            {
+              "type": "mrkdwn",
+              "text": "*Verification*\nManual routing tests delivered to each configured channel."
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Operator Note*\nThis is the real admin-lane test card: polished, compact, and intentionally calm."
+          }
+        }
+      ]
+    }
+  }
+}

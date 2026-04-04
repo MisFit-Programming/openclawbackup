@@ -1,0 +1,14 @@
+{
+  "vendor": "Microsoft 365 / Exchange Online",
+  "confidence": "Medium",
+  "detected_time": "2026-04-03 04:21 UTC",
+  "issue_summary": "Users may be intermittently unable to access Exchange Online mailboxes through some connection methods. Microsoft 365 status mirrors still show this as an active service degradation.",
+  "impact": "Email access disruption for some tenants and support volume risk for MSP help desks; may affect Outlook/OWA connectivity depending on connection path.",
+  "status": "Service degradation ongoing",
+  "response_1": "Check affected tenants for mailbox access failures and validate alternate access paths before escalating user-impact tickets.",
+  "response_2": "Pause broad client troubleshooting changes; monitor Microsoft 365 admin/service health updates and capture tenant-specific error examples.",
+  "source_1": "https://www.media.hiroshima-u.ac.jp/2026/04/03/m365-service-status/",
+  "source_1_label": "M365 status mirror",
+  "source_2": "https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/",
+  "source_2_label": "Neowin coverage"
+}

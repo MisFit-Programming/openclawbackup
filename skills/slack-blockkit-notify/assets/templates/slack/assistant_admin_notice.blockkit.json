@@ -1,0 +1,32 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Assistant Admin Notice" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Area:* {{area}}" },
+        { "type": "mrkdwn", "text": "*Changed:* {{changed_at}}" },
+        { "type": "mrkdwn", "text": "*Risk:* {{risk_level}}" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*What Changed*\n{{what_changed}}" }
+    },
+    {
+      "type": "section",
+      "fields": [
+        { "type": "mrkdwn", "text": "*Impact*\n{{impact}}" },
+        { "type": "mrkdwn", "text": "*Verification*\n{{verification}}" }
+      ]
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Operator Note*\n{{operator_note}}" }
+    }
+  ]
+}

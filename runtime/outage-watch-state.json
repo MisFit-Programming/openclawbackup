@@ -1,0 +1,15 @@
+{
+  "fingerprints": {
+    "Kaseya / Datto|Datto Workplace|datto-workplace-us-latency-multiple-projects|local+global-relevance|identified": {
+      "sentAt": "2026-04-03T17:13:00Z",
+      "vendor": "Kaseya / Datto",
+      "service": "Datto Workplace",
+      "incident_key": "datto-workplace-us-latency-multiple-projects",
+      "scope": "local+global-relevance",
+      "status_bucket": "identified",
+      "summary": "Datto Workplace latency affecting multiple U.S. projects; root cause identified and corrective solution under evaluation."
+    }
+  },
+  "lastUpdated": "2026-04-03T17:13:00Z",
+  "notes": "Used by the outage watch cron to suppress duplicate alerts across isolated runs."
+}

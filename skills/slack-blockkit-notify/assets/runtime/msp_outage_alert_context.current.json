@@ -1,0 +1,14 @@
+{
+  "vendor": "Microsoft 365",
+  "confidence": "Medium-High",
+  "detected_time": "2026-04-03 04:21 UTC",
+  "issue_summary": "Microsoft 365 is reporting an active service degradation affecting Exchange Online mailbox access in some connection methods, with third-party reporting indicating a broader M365 disruption under investigation.",
+  "impact": "Email access and related support volume may spike across Microsoft 365 tenants; expect intermittent mailbox connectivity issues and user-facing Outlook/Exchange disruption.",
+  "status": "Active degradation under investigation / partial outage",
+  "response_1": "Check Microsoft 365 admin/service health for tenant-specific advisories and pause nonessential mailbox troubleshooting while platform validation is in progress.",
+  "response_2": "Notify help desk and client-facing teams to expect Outlook/Exchange access complaints, document affected tenants, and steer users to retry rather than making risky local profile changes.",
+  "source_1": "https://www.media.hiroshima-u.ac.jp/2026/04/03/m365-service-status/",
+  "source_1_label": "M365 status mirror",
+  "source_2": "https://www.neowin.net/news/microsoft-confirms-outage-as-some-microsoft-365-services-go-down/",
+  "source_2_label": "Neowin report"
+}

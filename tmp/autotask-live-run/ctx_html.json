@@ -1,0 +1,18 @@
+{
+  "report_title": "Autotask Ticket Analysis \u2014 2026-04-03",
+  "executive_summary": "Analyzed 53 ticket(s) across 20 company IDs from the current webhook batch with primary focus on repeat patterns, prevention opportunities, and automation candidates. Maintenance was isolated at 5 ticket(s), while the strongest non-maintenance pattern currently points to Email. This report is intentionally weighted toward what should be prevented, standardized, or automated next.",
+  "window_label": "Webhook 24h batch",
+  "ticket_count": 53,
+  "company_count": 20,
+  "maintenance_metric": "5 maintenance ticket(s)",
+  "top_companies": "Company 311: 15 ticket(s)\nCompany 0: 10 ticket(s)\nCompany 263: 3 ticket(s)\nCompany 292: 3 ticket(s)",
+  "top_types": "Email: 17\nServer / Updates: 10\nIdentity / Access: 7\nGeneral Support: 6",
+  "patterns": "Maintenance events represented 5 ticket(s) and are tracked separately from reactive support.\nEmail appeared 17 time(s) in the current dataset.\nServer / Updates appeared 10 time(s) in the current dataset.",
+  "automations": "Bundle recurring maintenance notices, maintenance-mode timing, and completion notices into one reusable automation playbook.\nNormalize ticket categorization in the webhook/subworkflow so repeated issue types cluster cleanly for future scoring.\nEnrich each ticket with device/service metadata so repetitive fixes can be ranked for automation more accurately.",
+  "preventions": "Keep planned maintenance separate from reactive support in all daily analytics.\nStandardize ticket type tagging upstream to improve clustering quality.\nInclude affected service or asset in the webhook payload to expose repeat infrastructure pain faster.",
+  "cto_attention": "Company 311 crossed the noisy-company threshold with 15 tickets.\nCompany 0 crossed the noisy-company threshold with 10 tickets.\nMaintenance volume is 5 ticket(s) and remains isolated from the main reactive rankings.",
+  "process_notes": "Webhook response is now live and usable for production analysis.\nCompany IDs only are preserved, making the report safer to share upward.",
+  "resolved_wins": "Production webhook now returns usable data to the assistant.\nDaily scheduled lane and failure routing are in place.",
+  "appendix": "#28929 / Co 309 / 3rd Thursday - Church of Presentation Server Maintenance\n#28930 / Co 314 / 3rd Thursday - Center for Sight Server Maintenance\n#28931 / Co 320 / 3rd Thursday - Florsheim Homes\n#28932 / Co 276 / 3rd Thursday - Forest Meadows HOA Server Maintenance\n#28933 / Co 0 / Casey - Workspace Cleanup\n#28942 / Co 0 / Request #25936483: How would you rate the support you received?\n#28943 / Co 0 / Request #25936666: How would you rate the support you received?\n#28953 / Co 311 / Device went Offline (Offline for 10 mins) for MPMC-SRV-NGData",
+  "generated_at": "2026-04-03 18:52 UTC"
+}

@@ -1,0 +1,72 @@
+{
+  "channel": "C09C91KVD88",
+  "text": "CTO / MSP Brief \u2014 active exploitation pressure remains high; prioritize browser patching, hybrid Entra review, and Meet chat policy checks.",
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "CTO / MSP Brief"
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "*Date:* Fri Apr 3, 2026"
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Audience:* CTO / MSP Leadership"
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Summary*\nActive exploitation remains the top risk today, with fresh browser and enterprise software issues competing with ongoing Microsoft and Google admin changes. For MSPs, the operational priority is rapid patch validation, exposure review, and making sure identity and collaboration policy changes are staged before they surprise clients."
+      }
+    },
+    {
+      "type": "section",
+      "fields": [
+        {
+          "type": "mrkdwn",
+          "text": "*Security*\n\u2022 CISA added five more flaws to KEV on Mar 20, including Apple, Craft CMS, and Laravel Livewire issues\u2014good reminder to keep internet-facing app and CMS patch SLAs tight.\n\u2022 Chrome patched another in-the-wild zero-day (CVE-2026-5281); push browser updates fast across managed endpoints, especially admin and finance users."
+        },
+        {
+          "type": "mrkdwn",
+          "text": "*Platform / Vendor*\n\u2022 Microsoft Entra has a July 1 enforcement change ahead: Entra Connect will stop modifying OnPremisesObjectIdentifier after it is already mapped to a synced user object\u2014hybrid identity workflows should be reviewed now.\n\u2022 Google Workspace added admin control for continuous Google Meet chat, giving MSPs a cleaner way to manage retention, compliance, and host override behavior by OU/group/user."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*MSP Impact*\nExpect client questions around endpoint/browser patch urgency, hybrid identity edge cases, and chat retention/compliance settings. This is a good day to verify firewall/VPN, CMS, and collaboration-policy hygiene rather than waiting for the next client incident to force the review."
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Recommended Action*\n\u2022 Force or verify Chrome/Chromium-family updates in RMM for high-risk endpoints and privileged users.\n\u2022 Review hybrid Entra Connect environments for any dependency on OnPremisesObjectIdentifier changes before Microsoft\u2019s July enforcement window.\n\u2022 Audit exposed apps and management planes, then queue KEV, CMS/framework, and firewall/client-management patches into this week\u2019s maintenance plan."
+      }
+    },
+    {
+      "type": "context",
+      "elements": [
+        {
+          "type": "mrkdwn",
+          "text": "<https://www.cisa.gov/news-events/alerts/2026/03/20/cisa-adds-five-known-exploited-vulnerabilities-catalog|CISA KEV update> \u2022 <https://learn.microsoft.com/en-us/entra/fundamentals/whats-new|Microsoft Entra changes> \u2022 <https://workspaceupdates.googleblog.com/2026/03/control-continuous-meeting-chat-for-your-organization.html|Google Workspace admin control>"
+        }
+      ]
+    }
+  ]
+}

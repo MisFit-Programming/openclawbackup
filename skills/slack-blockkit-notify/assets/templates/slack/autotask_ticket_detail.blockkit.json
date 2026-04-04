@@ -1,0 +1,44 @@
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": { "type": "plain_text", "text": "Autotask Detailed Breakdown" }
+    },
+    {
+      "type": "context",
+      "elements": [
+        { "type": "mrkdwn", "text": "*Generated:* {{generated_at}}" },
+        { "type": "mrkdwn", "text": "*Company IDs only*" }
+      ]
+    },
+    { "type": "divider" },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Top Companies (5+)*\n• {{company_1}}\n• {{company_2}}\n• {{company_3}}\n• {{company_4}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Top Non-Maintenance Types (5+)*\n• {{type_1}}\n• {{type_2}}\n• {{type_3}}\n• {{type_4}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Recurring Issue Patterns*\n• {{pattern_1}}\n• {{pattern_2}}\n• {{pattern_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Prevention Opportunities*\n• {{prevention_1}}\n• {{prevention_2}}\n• {{prevention_3}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Technician / Process Observations*\n• {{process_1}}\n• {{process_2}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Resolved Wins*\n• {{resolved_1}}\n• {{resolved_2}}" }
+    },
+    {
+      "type": "section",
+      "text": { "type": "mrkdwn", "text": "*Sample Ticket Appendix*\n• {{appendix_1}}\n• {{appendix_2}}\n• {{appendix_3}}" }
+    }
+  ]
+}
